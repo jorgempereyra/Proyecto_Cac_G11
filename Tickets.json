@@ -1,0 +1,145 @@
+{
+    "tickets": [
+      {
+        "ID": "PPP-0001",
+        "titulo_incidente": "Problema con el servidor de correo",
+        "nombre_asignado": "Juan Pérez",
+        "estado_desarrollo": "En progreso",
+        "tiempo_restante": "3 días"
+      },
+      {
+        "ID": "PPP-0002",
+        "titulo_incidente": "Error en la aplicación móvil",
+        "nombre_asignado": "María González",
+        "estado_desarrollo": "Pendiente",
+        "tiempo_restante": "5 días"
+      },
+      {
+        "ID": "PPP-0003",
+        "titulo_incidente": "Fallo en la conexión a la base de datos",
+        "nombre_asignado": "Luis Ramírez",
+        "estado_desarrollo": "En revisión",
+        "tiempo_restante": "1 día"
+      },
+      {
+        "ID": "PPP-0004",
+        "titulo_incidente": "Actualización de software",
+        "nombre_asignado": "Ana Martínez",
+        "estado_desarrollo": "En espera",
+        "tiempo_restante": "10 días"
+      },
+      {
+        "ID": "PPP-0005",
+        "titulo_incidente": "Problema de seguridad",
+        "nombre_asignado": "Carlos López",
+        "estado_desarrollo": "En progreso",
+        "tiempo_restante": "7 días"
+      },
+      {
+        "ID": "PPP-0006",
+        "titulo_incidente": "Error en la página web",
+        "nombre_asignado": "Elena Rodríguez",
+        "estado_desarrollo": "Pendiente",
+        "tiempo_restante": "2 días"
+      },
+      {
+        "ID": "PPP-0007",
+        "titulo_incidente": "Fallo en la autenticación",
+        "nombre_asignado": "Pedro García",
+        "estado_desarrollo": "En progreso",
+        "tiempo_restante": "4 días"
+      },
+      {
+        "ID": "PPP-0008",
+        "titulo_incidente": "Problema de rendimiento",
+        "nombre_asignado": "Sofía Fernández",
+        "estado_desarrollo": "En espera",
+        "tiempo_restante": "8 días"
+      },
+      {
+        "ID": "PPP-0009",
+        "titulo_incidente": "Error en el sistema de pagos",
+        "nombre_asignado": "Pablo Ruiz",
+        "estado_desarrollo": "En revisión",
+        "tiempo_restante": "6 días"
+      },
+      {
+        "ID": "PPP-0010",
+        "titulo_incidente": "Actualización de base de datos",
+        "nombre_asignado": "Laura Díaz",
+        "estado_desarrollo": "Pendiente",
+        "tiempo_restante": "3 días"
+      },
+      {
+        "ID": "PPP-0011",
+        "titulo_incidente": "Problema de compatibilidad",
+        "nombre_asignado": "Mario Torres",
+        "estado_desarrollo": "En progreso",
+        "tiempo_restante": "2 días"
+      },
+      {
+        "ID": "PPP-0012",
+        "titulo_incidente": "Fallo en la interfaz de usuario",
+        "nombre_asignado": "Carmen Navarro",
+        "estado_desarrollo": "En espera",
+        "tiempo_restante": "9 días"
+      },
+      {
+        "ID": "PPP-0013",
+        "titulo_incidente": "Error en la generación de reportes",
+        "nombre_asignado": "Diego Gómez",
+        "estado_desarrollo": "En revisión",
+        "tiempo_restante": "1 día"
+      },
+      {
+        "ID": "PPP-0014",
+        "titulo_incidente": "Problema de escalabilidad",
+        "nombre_asignado": "Andrea Vargas",
+        "estado_desarrollo": "Pendiente",
+        "tiempo_restante": "7 días"
+      },
+      {
+        "ID": "PPP-0015",
+        "titulo_incidente": "Fallo en el proceso de registro",
+        "nombre_asignado": "Javier Sánchez",
+        "estado_desarrollo": "En progreso",
+        "tiempo_restante": "4 días"
+      },
+      {
+        "ID": "PPP-0016",
+        "titulo_incidente": "Error en la funcionalidad de búsqueda",
+        "nombre_asignado": "Isabel López",
+        "estado_desarrollo": "En espera",
+        "tiempo_restante": "5 días"
+      },
+      {
+        "ID": "PPP-0017",
+        "titulo_incidente": "Problema de usabilidad",
+        "nombre_asignado": "Miguel Rodríguez",
+        "estado_desarrollo": "En revisión",
+        "tiempo_restante": "3 días"
+      },
+      {
+        "ID": "PPP-0018",
+        "titulo_incidente": "Actualización de interfaz gráfica",
+        "nombre_asignado": "Natalia Martínez",
+        "estado_desarrollo": "Pendiente",
+        "tiempo_restante": "6 días"
+      },
+      {
+        "ID": "PPP-0019",
+        "titulo_incidente": "Problema de estabilidad",
+        "nombre_asignado": "Roberto González",
+        "estado_desarrollo": "En progreso",
+        "tiempo_restante": "2 días"
+      },
+      {
+        "ID": "PPP-0020",
+        "titulo_incidente": "Fallo en la sincronización de datos",
+        "nombre_asignado": "Sara Pérez",
+        "estado_desarrollo": "En espera",
+        "tiempo_restante": "8 días"
+      }
+    ]
+  }
+  
