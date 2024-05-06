@@ -2,12 +2,6 @@
     margin: 0;
 }
 
-button{
-    background-color: blueviolet;
-    color: white;
-    height: 30px;
-    border-radius: 20px;
-}
 
 .container{
     display: flex;
@@ -38,7 +32,7 @@ button{
 
 .div-img-text{
     margin-top: 1rem;
-    background-image: url(/assets/div-fondo.png);
+
     background-size: cover;
     background-repeat: no-repeat;
     display: flex;
@@ -70,12 +64,14 @@ button{
     text-align: center;
     padding-top: 1rem;
     padding-bottom: 1rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
 }
 
 
 
 .div-cart{
-    background-image: url(/assets/div-cart.png);
+    background-image: url(../assets/div-cart.png);
     height: 150px;
     display: flex;
     flex-direction: column;
@@ -91,7 +87,6 @@ button{
 
 .div-img-text2{
 
-    background-image: url(/assets/div-fondo.png);
     background-size: cover;
     background-repeat: no-repeat;
     display: flex;

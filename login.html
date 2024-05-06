@@ -4,41 +4,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/styles/style.css">
-    <link rel="stylesheet_login" href="/styles/style_login.css">
+    <link rel="stylesheet" href="styles/style.css">
     <script src="login_validacion.js"></script>
     <title>Iniciar Sesión</title>
 </head>
 
 <body>
+    <header>
 
-    <section class="flex">
+    </header>
+    <main>
+        <div class="flex">
 
-        <div class="container50 login_title">
-            <h1 class="nombre_producto">Nombre del producto</h1>
-        </div>
+            <div class="container50 login_title">
+                <h1 class="nombre_producto">Nombre del producto</h1>
+            </div>
 
-        <div class="container50">
+            <div class="container50">
+                <div class="div-login-img">
+                    <img src="./assets/backgrounds/background_colores.png">
+                </div>
+                <h2 class="title">Iniciar Sesión</h2>
 
-            <h2 class="title">Iniciar Sesión</h2>
-
-            <form action="/login" method="post" onsubmit="return validateForm()" class="div_column div_form">
-                    <input type="text" id="username" name="username" required minlength="3" maxlength="20" aria-label="Usuario"
-                        aria-describedby="usernameError" placeholder="Ingrese Usuario" class="input_field">
+                <form action="/login" method="post" onsubmit="return validateForm()" class="div_column div_form">
+                    <input type="text" id="username" name="username" required minlength="3" maxlength="20"
+                        aria-label="Usuario" aria-describedby="usernameError" placeholder="Ingrese Usuario"
+                        class="input_field">
                     <span id="usernameError" style="color: red; display: none;">Por favor ingresa un nombre de usuario
                         válido.</span>
-        
+
                     <input type="password" id="password" name="password" required minlength="8" aria-label="Contraseña"
                         aria-describedby="passwordError" placeholder="Ingrese Contraseña" class="input_field">
                     <span id="passwordError" style="color: red; display: none;">La contraseña debe tener al menos 8
                         caracteres.</span>
-                    
-                    <button type="submit" class="btn btn_principal">Iniciar Sesión</button>
-            </form>
-        
-        </div>
 
-    </section>
+                    <button type="submit" class="btn btn_principal">Iniciar Sesión</button>
+                </form>
+
+            </div>
+
+        </div>
+    </main>
+
+
+    <footer>
+
+    </footer>
 </body>
 
 </html>
