@@ -1,60 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/style/style.css">
+    <link rel="stylesheet" href="./styles/style.css">
+    <script src="login_validacion.js"></script>
     <title>Iniciar Sesión</title>
 </head>
 
 <body>
 
     <section class="flex">
-        <div class="containersDivsTitle">
-            <h1>Nombre del producto</h1>
+
+        <div class="container50 login_title">
+            <h1 class="nombre_producto">Nombre del producto</h1>
         </div>
-        <div class="containersDivsLogin">
 
-            <h2>Iniciar Sesión</h2>
-            <form action="/login" method="post" onsubmit="return validateForm()" class="formLogin">
-                <div class="divsForm">
+        <div class="container50">
 
-                    <input type="text" id="username" name="username" required minlength="3" maxlength="20" aria-label="Usuario" aria-describedby="usernameError" placeholder="Ingrese Usuario" class="inputsForm">
-                    <span id="usernameError" style="color: red; display: none;">Por favor ingresa un nombre de usuario válido.</span>
-                </div>
-                <div class="divsForm">
- 
-                    <input type="password" id="password" name="password" required minlength="8" aria-label="Contraseña" aria-describedby="passwordError" placeholder="Ingrese Contraseña" class="inputsForm">
-                    <span id="passwordError" style="color: red; display: none;">La contraseña debe tener al menos 8 caracteres.</span>
-                </div>
-                <button type="submit" class="btn-iniciar-sesion">Iniciar Sesión</button>
+            <h2 class="title">Iniciar Sesión</h2>
+
+            <form action="/login" method="post" onsubmit="return validateForm()" class="div_column div_form">
+                    <input type="text" id="username" name="username" required minlength="3" maxlength="20" aria-label="Usuario"
+                        aria-describedby="usernameError" placeholder="Ingrese Usuario" class="input_field">
+                    <span id="usernameError" style="color: red; display: none;">Por favor ingresa un nombre de usuario
+                        válido.</span>
+        
+                    <input type="password" id="password" name="password" required minlength="8" aria-label="Contraseña"
+                        aria-describedby="passwordError" placeholder="Ingrese Contraseña" class="input_field">
+                    <span id="passwordError" style="color: red; display: none;">La contraseña debe tener al menos 8
+                        caracteres.</span>
+                    
+                    <button type="submit" class="btn btn_principal">Iniciar Sesión</button>
             </form>
+        
         </div>
 
     </section>
-
-    <script>
-        function validateForm() {
-            // Validar el nombre de usuario
-            var username = document.getElementById("username").value;
-            if (username.length < 3 || username.length > 20) {
-                document.getElementById("usernameError").style.display = "block";
-                return false;
-            } else {
-                document.getElementById("usernameError").style.display = "none";
-            }
-
-            // Validar la contraseña
-            var password = document.getElementById("password").value;
-            if (password.length < 8) {
-                document.getElementById("passwordError").style.display = "block";
-                return false;
-            } else {
-                document.getElementById("passwordError").style.display = "none";
-            }
-
-            return true;
-        }
-    </script>
 </body>
+
 </html>
