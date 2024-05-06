@@ -3,116 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario_contacto</title>
+    <title>Formulario de Contacto</title>
+    <link rel="stylesheet" href="styles/style.css"> <!-- Asegúrate de que este enlace apunte al archivo CSS -->
 </head>
 <body>
-    <header></header>
+    <div class="flex background_image">
+        <div class="float_form">
+            <h1 class="title">Formulario de Contacto</h1>
+            <form action="#" method="post">
+                <div class="div_row form_labeled">
 
-    <main>
-        <h1>Formulario de Contacto</h1>
-    </main>
-    <form action="" id="" method="get">
+                        <label for="nombre_apellido" class="label_field">Nombre y Apellido</label>
+                        <input type="text" id="nombre_apellido" name="nombre_apellido" class="input_field input_labeled">
 
-        <fieldset>
-            <legend>Datos Personales</legend>
-            <div>
-                <label for="nombre">Nombre:</label>
-                <input type="text" id="nombre" name="nombre" placeholder="Escriba su nombre..." maxlength="20" required>
-            </div>
+                </div>
+                <div class="div_row form_labeled">
+                    
+                    <br><label for="email" class="label_field">Email</label>
+                        <input type="email" id="email" name="email" class="input_field input_labeled">
+                        <br><label for="telefono" class="label_field">Teléfono</label>
+                        <input type="tel" id="telefono" name="telefono" class="input_field input_labeled">
+                        
+                    </div>
 
-            <div>
-                <label for="apellido">Apellido:</label>
-                <input type="text"id="apellido" name="apellido" placeholder="Escriba su apellido...">
-            </div>
+                        <div class="div_row form_labeled"> 
+                            <br><label for="motivo_contacto" class="label_field">Motivo de Contacto</label>
+                        <select id="motivo_contacto" name="motivo_contacto" class="input_field input_selection">
+                            <option value="Consulta">Consulta</option>
+                            <option value="Pedido de cotización">Pedido de cotización</option>
+                            <option value="Reporte de bug">Reporte de bug</option>
+                        </select>
 
-            <div>
-                <label for="Numero de CUIL">Numero de CUIL:</label>
-                <input type="number" id="numero de cuil" name="numero de cuil" placeholder="Escriba su CUIL..." maxlength="20" required>
-            </div>
+                </div>
+        
+                <div class="div_row form_labeled"> 
+                        <br><label for="mensaje" class="label_field">Mensaje</label><br>
+                        <textarea id="mensaje" name="mensaje" rows="20" class="input_field input_textarea"></textarea>
+                    </div>
+                        <div class="div_row form_labeled">
+                            <span class="label_field">¿Desea recibir promociones?</span>
+                            <div class="div_row" style="width: 10%">
+                            
+                            <input type="radio" id="si" name="info" value="si" class="input_field input_labeled">
+                            <label for="si">Sí</label>
+                           
+                            <input type="radio" id="no" name="info" value="no" class="input_field input_labeled">
+                            <label for="no">No</label>
+                        </div>
+                        </div>
+                        <button type="submit" class="btn btn_principal">Enviar Datos</button>
 
-            <div>
-                <label for="mail">Correo electrónico: </label>
-                <input type="email"  id="correo electrónico" name="correo electrónico" placeholder="Escriba su correo electrónico..." maxlength="30" required>
-            </div>
-
-            <div>
-                <label for="dni">Documento de identidad:</label>
-                <input type="number" id="dni" name="dni" placeholder="Escriba su dni..." maxlength="20" required>
-            </div>
-
-            <div>
-                <label for="telefono">Teléfono: </label>
-                <input type="number"  id="numero de telefono" name="numero de telefono" placeholder="Escriba su Número de teléfono..." maxlength="20" required>
-            </div>
-            
-            <div>
-                <label for="provincia">Provincia:</label>
-                <input type="text"  id="provincia" name="provincia" placeholder="Provincia..." maxlength="20" required> 
-            </div>
-
-            <div>
-                <label for="lugar de residencia">Lugar de residencia: </label>
-                <input type="text"  id="lugar de residencia" name="lugar de residencia" placeholder="Escriba su lugar de residencia..." maxlength="20" required>
-            </div>
-        </fieldset>
-
-        <BR>
-
-        <div>
-            <label for="CUD">CUD</label>
-            <input type="checkbox" name="cud" value="1" required>Si
-            <input type="checkbox" name="cud" value="2" required>No
-
+            </form>
         </div>
-        <br>
-
-        <div>
-            <label for="motivo de tu consulta">Motivo de tu consulta: </label>
-            <select name="motivo de tu consulta" id="motivo de tu consulta">
-                <option value="">Seleccione una opción</option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-            </select>
-        </div>
-        <br>
-        <div>
-            <label for="observaciones">observaciones</label> <br>
-            <textarea name="observaciones" id="" cols="30" rows="10" placeholder="Deje sus observaciones.."></textarea>
-        </div>
-    <br>
-
-    <div>
-        <label for="archivo1">Si necesita adjuntar documentación podras hacerlo aqui. <br>Adjuntar documentación. Archivo 1 </label>
-        <input type="file">
     </div>
-
-    <Div>
-        <label for="archivo2">Adjuntar documentación. Archivo 2 </label>
-        <input type="file">
-    </Div>
-    <Div>
-        <label for="archivo3">Adjuntar documentación. Archivo 3 </label>
-        <input type="file">
-    </Div>
-    <br>
-    <br>
-
-    <div>
-        <label for="¿Querés recibir mas información?">¿Querés recibir mas información?</label>
-        <input type="radio" name="info" value="a">Si
-        <input type="radio" name="info" value="b">No
-    </div>
-    <br>
-    <div>
-    <input type="submit">
-</div>
-
-
-    <footer></footer>
 </body>
 </html>
