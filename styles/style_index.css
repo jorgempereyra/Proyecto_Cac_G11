@@ -9,10 +9,6 @@ button{
     border-radius: 20px;
 }
 
-button:hover{
-    background-color: lightcoral;
-}
-
 .container{
     display: flex;
     justify-content: space-evenly;
@@ -42,7 +38,7 @@ button:hover{
 
 .div-img-text{
     margin-top: 1rem;
-    background-image: url(/Proyecto_Cac_G11/assets/div-fondo.png);
+    background-image: url(/assets/div-fondo.png);
     background-size: cover;
     background-repeat: no-repeat;
     display: flex;
@@ -79,7 +75,7 @@ button:hover{
 
 
 .div-cart{
-    background-image: url(/Proyecto_Cac_G11/assets/div-cart.png);
+    background-image: url(/assets/div-cart.png);
     height: 150px;
     display: flex;
     flex-direction: column;
@@ -95,7 +91,7 @@ button:hover{
 
 .div-img-text2{
 
-    background-image: url(/Proyecto_Cac_G11/assets/div-fondo.png);
+    background-image: url(/assets/div-fondo.png);
     background-size: cover;
     background-repeat: no-repeat;
     display: flex;

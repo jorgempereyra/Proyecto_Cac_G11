@@ -5,30 +5,64 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <link rel="stylesheet" href="assets/style/style.css">
+  <link rel="stylesheet" href="/styles/style.css">
 </head>
 
 <body>
-  <div id="top_bar">
-    <img src="/images/icons/logo.svg">
-    <h1>Nombre de producto</h1>
-    <div id="Botonera">
-      <a href="index.html" id="button">Home</a>
-      <a href="Proyectos.html" id="button">Proyectos</a>
-      <a href="Proyectos.html" id="button">Mis tareas</a>
-      <a href="Formulario_incidente.html" id="button_primary">Crear</a>
-      <a href="Formulario_contacto.html" id="button">Contacto</a>
+  <div class="top_bar">
+    <img src="/assets/icons/logo.svg">
+    <a href="index.html">
+      <h1 class="nombre_producto">Nombre de producto</h1>
+    </a>
+    <a href="Proyectos.html" class="btn btn_secundario">Proyectos</a>
+    <a href="Proyectos.html" class="btn btn_secundario">Mis tareas</a>
+    <a href="Formulario_incidente.html" class="btn btn_principal">Crear</a>
+
+    <input type="search" class="input_field input_search" placeholder="Buscar">
+    <img src="/assets/icons/options.svg">
+    <img src="/assets/icons/user.svg">
+  </div>
+  <div id="title">
+    <h2 class="subtitle">Proyectos/Proyecto 1/KEY-1</h2>
+    <h1 class="title">Limpieza de equipo</h1>
+  </div>
+
+  <div class="div_row form_labeled">
+  <div class="div_column">
+    <br><label for="tipotarea" class="label_field">Tipo de tarea:</label>
+    <input type="text" id="text" name="text" class="input_field input_labeled"></input>
+    <br><label for="Asignado" class="label_field">Asignado:</label>
+    <select type="" id="asignado" name="asignado" class="input_field input_labeled">
+      <option value="value1">value1</option>
+      <option value="value2">value2</option>
+      <option value="value3">value3</option>
+    </select>
     </div>
-    <div id="search">
-      <input type="text" placeholder="Buscar">
-    </div>
-    <div id="opciones">
-      <img src="/images/icons/user.svg">
-      <img src="/images/icons/options.svg">
-    </div>
-    <div id="title">
-      <h1>Formulario de Creación de Incidente</h1>
-    </div>
+
+    <div class="div_column">
+      
+    <br><label for="fecha_vencimiento" class="label_field">Fecha vencimiento:</label>
+    <input type="date" id="fecha_vencimiento" name="fecha_vencimiento" class="input_field input_labeled"></input>
+
+    <br><label for="tiempo restante" class="label_field">Tiempo restante</label>
+    <input type="time" id="tiempo_restante" name="tiempo_restante" class="input_field input_labeled"></input>
+  </div>
+  <div class="div_column">
+    
+    <br><label for="Asignado" class="label_field">Asignado:</label>
+    <select type="" id="asignado" name="asignado" class="input_field input_labeled">
+      <option value="value1">value1</option>
+      <option value="value2">value2</option>
+      <option value="value3">value3</option>
+    </select>
+  </div>
+  </div>
+
+  <div class="div_column form_labeled">
+    <br><label for="Descripcion" class="label_field">Descripción</label>
+    <textarea id="Descripcion" name="Descripcion" rows="20" class="input_field input_textarea"></textarea>
+  </div>
+
 </body>
 
 </html>

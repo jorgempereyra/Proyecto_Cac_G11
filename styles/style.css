@@ -19,6 +19,12 @@
     --background_colores: url(/assets/backgrounds/background_colores.png);
 }
 
+.subtitle{
+    font-family: var(--Roboto);
+    font-size: 18px;
+    color: var(--gris)
+}
+
 /*icons*/
 .icon {
     display: inline-block;
@@ -52,18 +58,7 @@
     background-image: url(/assets/icons/options.svg)
 };
 
-/* Top bar con botoneras*/
-.top_bar{
-    background-color: var(--blanco);
-    color: var(--negro);
-    width: 100%;
-    padding: 10px 20px 10px 20px;
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    text-align: center;
-    align-items: center;
-}
+
 
 /*common titles*/
 .nombre_producto{
@@ -80,7 +75,7 @@
 
 .btn{
     border-radius: var(--border_radius);
-    height: 20%;
+    height: 15px;
     text-align: center;
     padding: 20px 0% 20px 0%;
     margin: 1rem 1rem 0rem 1rem;
@@ -103,8 +98,14 @@ button:hover {
     background-color: var(--violeta);
 }
 
+.btn.btn_principal:hover{
+    background-color: lightcoral;
+}
+
 .btn.btn_secundario {
     background-color: var(--blanco);
+    color: var(--negro);
+    border: 1px solid var(--gris);
 }
 
 /* generic_classes */
@@ -193,7 +194,6 @@ button:hover {
     padding:5%;
 }
 
-
 /* fields */
 
 .label_field{
@@ -205,9 +205,9 @@ button:hover {
 }
 
 .input_field{
-    height: 1.5rem;
+    height: 15px;
     text-align: center;
-    padding: 5px 0% 5px 0%;
+    padding: 5px 10px;
     margin: 10px 20px;
     border-radius: var(--border_radius);
     width: 100%;
@@ -225,13 +225,23 @@ button:hover {
 }
 
 .input_field.input_selection {
-    height: 2.5rem;
-    padding: 5px 0% 5px 0%;
+    height: 30px;
+    padding: 5px 10px;
     margin: 0,0,15px,0;
+    text-align: left;
 }
 
 .input_field.input_textarea {
     height: 150px;
+    padding: 10px 10px;
+    margin: 0,0,15px,0;
+    width: 100%;
+    resize: none;
+    text-align: left;
+}
+
+.input_field.input_search {
+    height: 1.5rem;
     padding: 10px 10px;
     margin: 0,0,15px,0;
     width: 100%;
@@ -263,7 +273,17 @@ button:hover {
 }
 }
 
-
+/* Top bar con botoneras*/
+.top_bar {
+    color: var(--negro);
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    text-align: center;
+}
 
 
 
