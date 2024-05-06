@@ -1,5 +1,6 @@
 *{
     font-family: 'Courier New', Courier, monospace;
+    font-size: medium;
 }
 
 .flex{
@@ -54,5 +55,11 @@
     text-align: center;
     margin: 0px 30px 0 30px;
     color: white;
+    background-color: #ee8d08;
+    transition-duration: 0.4s;
+}
+
+.btn-iniciar-sesion:hover{
     background-color: blueviolet;
+    color: white;
 }
