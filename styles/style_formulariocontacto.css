@@ -1,3 +1,34 @@
+.nav-container {
+    display: flex;
+    justify-content: space-around; 
+    align-items: center;
+    background-image: url(/assets/fondo.claro.jpg);
+    padding: 10px 20px; 
+}
+.div_row {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    margin-bottom: 20px; 
+}
+
+/*para los botones */
+.nav-container .btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #1e6cc0;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.nav-container .btn:hover {
+    background-color: #0056b3;
+}
+
 /* Reset de estilos básicos */
 body {
     font-family: Arial, sans-serif;
@@ -68,3 +99,4 @@ body {
 .btn_principal:hover {
     background-color: #0056b3;
 }
+
