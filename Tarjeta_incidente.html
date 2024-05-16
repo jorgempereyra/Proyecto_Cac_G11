@@ -19,52 +19,46 @@
             </ul>
         </nav>
         <div class="header-fields">
-            <a href="/Formulario_incidente.html" class="header-button">Crear</a>
+            <button href="/Formulario_incidente.html" class="header-button">Crear</button>
             <div id= "search" class="search">
                 <input type="text" placeholder="Search">
             </div>
             <div class="user-icon">
                 <img src="assets/icons/options.svg" height="30" width="30">
-                <img src="assets/icons/user.svg" href="/login.html" height="30" width="30">
+                <img src="assets/icons/user.svg" height="30" width="30">
             </div>
         </div>
     </header>
     <main>
-        <form>
         <div class="breadcrumb">
             <a href="Proyectos.html">Proyectos</a> / <a href="#">Proyecto 1</a> / <span>KEY-1</span>
         </div>
         <section class="task-detail">
-            <input class="title_input"  type="text" placeholder="Título"></input>
+            <span class="status">TO DO</span>
+            <h2>Limpieza de equipos</h2>
             <div class="task-info">
                     <div class="task-type">
                     <span class="icon">&#128100;</span>
-                    <select class="field_input" type="text" placeholder="Tipo de Incidencia">
-                        <option>Incidente</option>
-                        <option>Requerimiento</option>
-                        <option>Sugerencia</option>
-                    </select>
+                    <span>Incidente</span>
                 </div>
                 <div class="task-assigned">
                     <span class="icon">&#128100;</span>
-                    <select class="field_input" type="text" placeholder="Asignar a">
-                        <option>Persona 1</option>
-                        <option>Persona 2</option>
-                        <option>Persona 3</option>
-                    </select>
+                    <span>Persona 1</span>
                 </div>
                 <div class="task-datetime">
-                    <span class="icon">Vencimiento</span>
-                    <select class="field_input" type="datetime" placeholder="Vencimiento">
-                        
-                    </select>
+                    <span>Vencimiento: 22/05/24 18:00</span>
+                </div>
+                <div class="task-time-remaining">
+                    <span>Tiempo restante: 25m</span>
                 </div>
             </div>
             <div class="task-description">
                 <h3>Descripción:</h3>
                 <textarea placeholder="Añadir una descripción..."></textarea>
             </div>
-        </form>
+            <div class="task-created">
+                <span>Creado: 22/05/24 18:00</span>
+            </div>
             <div>
                 <img src=assets/icons/boton-flotante.svg href="/Formulario_incidente.html" class="boton-flotante"></a>
             </div>

@@ -5,18 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario de Contacto</title>
     <link rel="stylesheet" href="styles/style_formulariocontacto.css">
+    <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
-    
+    <header>
+        <div class="logo" alt="logo">
+            <img src="assets/icons/logo.svg" height="30" width="30">
+            <h1>NOMBRE DE PRODUCTO</h1>
+        </div>
+        <div class="header-fields">
+            <a href="/index.html" class="header-button">Home</a>
+        </div>
+    </header>
 
     <div class="flex background_image">
         <div class="float_form">
-            <nav class="nav-container"> 
-                <a href="login.html"><button type="button" class="btn">Login</button></a>
-                <a href="Proyectos.html"><button type="button" class="btn">Proyectos</button></a>
-                <a href="Formulario_incidente.html"><button type="button" class="btn">Crear</button></a>
-                <a href="Formulario_contacto.html"><button type="button" class="btn">Contacto</button></a>
-            </nav>
             <h1 class="title">Formulario de Contacto</h1>
             <form action="#" method="post">
                 <div class="div_row form_labeled">
@@ -50,11 +53,10 @@
                     </div>
                         <div class="div_row form_labeled">
                             <span class="label_field">¿Desea recibir promociones?</span>
-                            <div class="div_row" style="width: 10%">
+                            <div class="div_row form_selector">
                             
                             <input type="radio" id="si" name="info" value="si" class="input_field input_labeled"></input>
                             <label for="si">Sí</label>
-                           
                             <input type="radio" id="no" name="info" value="no" class="input_field input_labeled"></input>
                             <label for="no">No</label>
                         </div>
