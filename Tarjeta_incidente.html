@@ -14,42 +14,42 @@
         </div>
         <nav>
             <ul>
-                <li><a href="#">Proyectos</a></li>
-                <li><a href="#">Mis tareas</a></li>
+                <li><a href="/Proyectos.html">Proyectos</a></li>
+                <li><a href="/Mis tareas.html">Mis tareas</a></li>
             </ul>
         </nav>
-        <div class="header-controls">
-            <button>Crear</button>
-            <div class="search">
+        <div class="header-fields">
+            <button href="/Formulario_incidente.html" class="header-button">Crear</button>
+            <div id= "search" class="search">
                 <input type="text" placeholder="Search">
             </div>
-            <div class="user-icon"></div>
+            <div class="user-icon">
+                <img src="assets/icons/options.svg" height="30" width="30">
+                <img src="assets/icons/user.svg" height="30" width="30">
+            </div>
         </div>
     </header>
     <main>
         <div class="breadcrumb">
-            <a href="#">Proyectos</a> / <a href="#">Proyecto 1</a> / <span>KEY-1</span>
+            <a href="Proyectos.html">Proyectos</a> / <a href="#">Proyecto 1</a> / <span>KEY-1</span>
         </div>
         <section class="task-detail">
+            <span class="status">TO DO</span>
             <h2>Limpieza de equipos</h2>
             <div class="task-info">
-                <div class="task-type">
-                    <span class="icon">&#9888;</span>
-                    <span>Tipo: Incidente</span>
-                </div>
-                <div class="task-datetime">
-                    <span>Fecha | Hora límite: 22/05/24 18:00</span>
+                    <div class="task-type">
+                    <span class="icon">&#128100;</span>
+                    <span>Incidente</span>
                 </div>
                 <div class="task-assigned">
                     <span class="icon">&#128100;</span>
-                    <span>Asignado: Persona 1</span>
+                    <span>Persona 1</span>
+                </div>
+                <div class="task-datetime">
+                    <span>Vencimiento: 22/05/24 18:00</span>
                 </div>
                 <div class="task-time-remaining">
                     <span>Tiempo restante: 25m</span>
-                </div>
-                <div class="task-status">
-                    <span class="status-label">Estado:</span>
-                    <span class="status">TO DO</span>
                 </div>
             </div>
             <div class="task-description">
@@ -59,5 +59,9 @@
             <div class="task-created">
                 <span>Creado: 22/05/24 18:00</span>
             </div>
+            <div>
+                <img src=assets/icons/boton-flotante.svg href="/Formulario_incidente.html" class="boton-flotante"></a>
+            </div>
+
         </section>
    

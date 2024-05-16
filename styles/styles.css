@@ -10,6 +10,7 @@ body {
     color: #333;
 }
 
+/*-------header-------*/
 header {
     display: flex;
     justify-content: space-between;
@@ -17,12 +18,19 @@ header {
     background-color: #fff;
     padding: 10px 20px;
     border-bottom: 1px solid #ddd;
-    flex-wrap: wrap;
+    flex-direction: row;
+    width: 100%;
+    position: fixed;
+    z-index: 999;
 }
+
 .logo {
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    vertical-align: middle;
 }
+
 .logo.img {
     margin-right: 10px;
 }
@@ -30,12 +38,14 @@ header {
 .logo.h1 {
     font-size: 1.5em;
     text-align: left;
+    margin-left: 20px;
 }
 
 nav ul {
     list-style: none;
     display: flex;
-    gap: 20px;
+    gap: 40px;
+    margin-left: 150px;
 }
 
 nav a {
@@ -43,20 +53,21 @@ nav a {
     color: #333;
 }
 
-.header-controls {
+.header-fields {
     display: flex;
+    flex-direction: row;
     align-items: center;
     gap: 20px;
-    flex-wrap: wrap;
 }
 
-.header-controls button {
+.header-button {
     background-color: #7c4dff;
     color: #fff;
     border: none;
     padding: 10px 20px;
     cursor: pointer;
     border-radius: 4px;
+    
 }
 
 .search input {
@@ -66,11 +77,15 @@ nav a {
 }
 
 .user-icon {
-    width: 30px;
+    width: 100%;
     height: 30px;
-    background-color: #ddd;
-    border-radius: 50%;
+    vertical-align: middle;
+    margin-right: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
 }
+/*-------/header-------*/
 
 main {
     padding: 20px;
@@ -90,10 +105,13 @@ main {
 }
 
 .task-detail {
+    display: flex;
+    flex-direction: column;
     background-color: #fff;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    gap: 20px;
 }
 
 .task-detail h2 {
@@ -118,16 +136,22 @@ main {
     font-size: 1.2em;
 }
 
-.task-status {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-}
-
 .status {
-    background-color: #ddd;
+    width: fit-content;
     padding: 5px 10px;
     border-radius: 4px;
+}
+
+.status.TODO {
+    background-color: #464646;
+}
+
+.status.WIP {
+    background-color: #e6e213;
+}
+
+.status.DONE {
+    background-color: #03d30d;
 }
 
 .task-description {
@@ -150,12 +174,59 @@ main {
     color: #999;
 }
 
+/*------- Boton flotante -------*/
+.contenedor {
+    position: relative;
+  }
+  
+.boton-flotante {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #7c4dff;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    padding: 30px;
+    font-size: 30px;
+    text-align: center;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+    background-repeat: no-repeat;
+}
+  
+.boton-flotante:hover {
+    background-color: #3a169e;
+    transform: scale(1.1);
+}
+/*------- /Boton flotante -------*/
+/*------- Formulario -------*/
+.title_input {
+    font-size: 3em;
+    text-align: left;
+    padding: 0px 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.field_input {
+    font-size: 1.5em;
+    text-align: left;
+    padding: 0px 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+/*------- /Formulario -------*/
 /* Responsive Styles */
 @media (max-width: 768px) {
     .task-info {
         grid-template-columns: 1fr;
     }
-
+    .logo {
+        font-size: 0.5em;
+    }
     .header-controls {
         justify-content: center;
     }
@@ -163,11 +234,23 @@ main {
     header {
         flex-direction: column;
         align-items: center;
+        gap: 20px;
+        position: fixed;
+        top: 0;
+        width: 100%;
     }
 
     nav ul {
-        flex-direction: column;
-        gap: 10px;
+        flex-direction: row;
+        margin-left: 0px;
+    }
+    
+    .header-button {
+        display:none;
+    }
+    
+    .boton-flotante {
+        display: block;
     }
 }
 
@@ -187,4 +270,13 @@ main {
     .task-description textarea {
         height: 80px;
     }
+
+    .user-icon {
+        display: none;
+    }
+
+    .boton-flotante {
+        display: block;
+    }
 }
+
