@@ -1,0 +1,123 @@
+/* Estilos generales */
+body {
+    margin: 0;
+    padding: 0;
+    overflow-y: auto; /* Permitir desplazamiento vertical */
+}
+
+/* Asegurar que el header sea fijo y que el contenido tenga suficiente margen superior */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.container {
+    margin-top: 80px; /* Ajuste suficiente para que el contenido no sea cubierto */
+    padding: 20px;
+}
+
+/* Hacer que los botones tengan el mismo estilo */
+button {
+    background-color: #7c4dff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+button:hover {
+    background-color: #3a169e;
+}
+
+/* Estilo de los proyectos */
+.projects {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 20px 0; /* Añadir margen superior e inferior para espacio */
+}
+
+.project {
+    display: grid;
+    grid-template-columns: 40px 1fr 1fr 1fr 1fr 1fr auto; /* Ajuste para asegurarnos de que todos los elementos estén alineados */
+    align-items: center;
+    padding: 10px;
+    background: #fff;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+}
+
+.project-header {
+    font-weight: bold;
+    background: #f1f1f1;
+}
+
+/* Efecto hover en las líneas de proyecto */
+.project:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.project .status {
+    padding: 5px 10px;
+    border-radius: 12px;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
+.project .status.on-track {
+    background-color: #03d30d;
+}
+
+.project .status.at-risk {
+    background-color: #e6e213;
+}
+
+.project .status.off-track {
+    background-color: #dc3545;
+}
+
+.project .url a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.project .url a:hover {
+    text-decoration: underline;
+}
+
+.delete-button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    justify-self: end; /* Asegura que el botón esté al final */
+}
+
+.delete-button:hover {
+    background-color: #c82333;
+}
+
+/* Estilo responsive para proyectos */
+@media (max-width: 768px) {
+    .projects .project {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto auto auto auto;
+    }
+
+    .project span {
+        margin-bottom: 10px;
+    }
+
+    .delete-button {
+        grid-row-start: 7;
+    }
+}
