@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/styles.css">
-    <link rel="stylesheet" href="styles/style_proyectos.css">
+    <link rel="stylesheet" href="./styles/styles.css">
+    <link rel="stylesheet" href="./styles/style_proyectos.css">
     <title>Proyectos</title>
 </head>
 <body>
@@ -15,18 +15,18 @@
         </div>
         <nav>
             <ul>
-                <li><a href="/Proyectos.html">Proyectos</a></li>
-                <li><a href="/Mis tareas.html">Mis tareas</a></li>
+                <li><a href="./Proyectos.html">Proyectos</a></li>
+                <li><a href="./Mis tareas.html">Mis tareas</a></li>
             </ul>
         </nav>
         <div class="header-fields">
-            <button href="/Formulario_incidente.html" class="header-button">Crear</button>
+            <button href="./Formulario_incidente.html" class="header-button">Crear</button>
             <div id="search" class="search">
                 <input type="text" placeholder="Search">
             </div>
             <div class="user-icon">
-                <img src="assets/icons/options.svg" height="30" width="30">
-                <img src="assets/icons/user.svg" height="30" width="30">
+                <img src="./assets/icons/options.svg" height="30" width="30">
+                <img src="./assets/icons/user.svg" height="30" width="30">
             </div>
         </div>
     </header>
@@ -34,62 +34,21 @@
     <div class="container">
         <h1>Proyectos</h1>
         <div class="search-bar">
-            <input type="text" placeholder="Buscar proyectos" id="search-input">
+            <input class="search" type="text" placeholder="Buscar proyectos" id="search-input">
+            <select id="filter-owner">
+                <option value="">Seleccionar propietario</option>
+                <option value="Juan Perez">Juan Perez</option>
+                <option value="Ana Gomez">Ana Gomez</option>
+                <option value="Carlos Ruiz">Carlos Ruiz</option>
+                <option value="Laura Martinez">Laura Martinez</option>
+                <option value="Pedro Lopez">Pedro Lopez</option>
+            </select>
             <button>Filtrar por etiqueta</button>
-            <button>Estado</button>
-            <button>Equipo</button>
-            <button>Propietario</button>
-            <button>Línea jerárquica</button>
         </div>
-        <div class="projects">
-            <div class="project">
-                <span class="icon">⭐</span>
-                <span class="name">Proyecto 1</span>
-                <span class="type">Desarrollo</span>
-                <span class="status on-track">ON TRACK</span>
-                <span class="responsible">Juan Perez</span>
-                <span class="url"><a href="#">www.proyecto1.com</a></span>
-                <button class="delete-button">Eliminar</button>
-            </div>
-            <div class="project">
-                <span class="icon">🥑</span>
-                <span class="name">Proyecto 2</span>
-                <span class="type">Marketing</span>
-                <span class="status at-risk">AT RISK</span>
-                <span class="responsible">Ana Gomez</span>
-                <span class="url"><a href="#">www.proyecto2.com</a></span>
-                <button class="delete-button">Eliminar</button>
-            </div>
-            <div class="project">
-                <span class="icon">🍒</span>
-                <span class="name">Proyecto 3</span>
-                <span class="type">Investigación</span>
-                <span class="status off-track">OFF TRACK</span>
-                <span class="responsible">Carlos Ruiz</span>
-                <span class="url"><a href="#">www.proyecto3.com</a></span>
-                <button class="delete-button">Eliminar</button>
-            </div>
-            <div class="project">
-                <span class="icon">🎂</span>
-                <span class="name">Proyecto 4</span>
-                <span class="type">Desarrollo</span>
-                <span class="status on-track">ON TRACK</span>
-                <span class="responsible">Laura Martinez</span>
-                <span class="url"><a href="#">www.proyecto4.com</a></span>
-                <button class="delete-button">Eliminar</button>
-            </div>
-            <div class=" project">
-                <span class="icon">⛱️</span>
-                <span class="name">Proyecto 5</span>
-                <span class="type">Marketing</span>
-                <span class="status on-track">ON TRACK</span>
-                <span class="responsible">Pedro Lopez</span>
-                <span class="url"><a href="#">www.proyecto5.com</a></span>
-                <button class="delete-button">Eliminar</button>
-            </div>
-        </div>
+        <div class="projects"></div>
     </div>
-    <script src="scripts/proyectos.js"></script>
+    
+    <script src="./scripts/proyectos.js"></script>
     <footer></footer>
 </body>
 </html>

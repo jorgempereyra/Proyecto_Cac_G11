@@ -1,0 +1,91 @@
+/* Estilos para la página de tareas */
+.container {
+    margin-top: 80px; /* Ajuste suficiente para que el contenido no sea cubierto */
+    padding: 20px;
+}
+
+/* Estilo para la barra de búsqueda */
+.search-bar {
+    margin-bottom: 20px;
+}
+
+.search-bar input[type="text"],
+.search-bar select,
+.search-bar button {
+    margin-right: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.search-bar button {
+    background-color: #7c4dff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.search-bar button:hover {
+    background-color: #3a169e;
+}
+
+/* Estilo para las tareas */
+.tasks {
+    display: grid;
+    gap: 10px;
+}
+
+.task-header, .tarea {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+}
+
+.task-header {
+    background-color: #e9ecef;
+    font-weight: bold;
+}
+
+.task-header span, .tarea span {
+    padding: 10px;
+}
+
+.tarea {
+    background-color: #fff;
+}
+
+.tarea:nth-child(even) {
+    background-color: #f1f1f1;
+}
+.back-button {
+    background-color: #7c4dff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.back-button:hover {
+    background-color: #3a169e;
+}
+
+/* Estilo responsive para tareas */
+@media (max-width: 768px) {
+    .task-header, .tarea {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+    }
+
+    .task-header span, .tarea span {
+        padding: 5px;
+    }
+}

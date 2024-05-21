@@ -1,0 +1,49 @@
+{
+    "projects": [
+        {
+            "id": 1,
+            "icon": "⭐",
+            "name": "Proyecto 1",
+            "type": "Desarrollo",
+            "status": "Doing",
+            "responsible": "Juan Perez",
+            "url": "www.proyecto1.com"
+        },
+        {
+            "id": 2,
+            "icon": "🥑",
+            "name": "Proyecto 2",
+            "type": "Marketing",
+            "status": "En Riesgo",
+            "responsible": "Ana Gomez",
+            "url": "www.proyecto2.com"
+        },
+        {
+            "id": 3,
+            "icon": "🍒",
+            "name": "Proyecto 3",
+            "type": "Investigación",
+            "status": "Fuera de Tiempo",
+            "responsible": "Carlos Ruiz",
+            "url": "www.proyecto3.com"
+        },
+        {
+            "id": 4,
+            "icon": "🎂",
+            "name": "Proyecto 4",
+            "type": "Desarrollo",
+            "status": "Doing",
+            "responsible": "Laura Martinez",
+            "url": "www.proyecto4.com"
+        },
+        {
+            "id": 5,
+            "icon": "⛱️",
+            "name": "Proyecto 5",
+            "type": "Marketing",
+            "status": "Doing",
+            "responsible": "Pedro Lopez",
+            "url": "www.proyecto5.com"
+        }
+    ]
+}

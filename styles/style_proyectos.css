@@ -21,6 +21,16 @@ body {
     padding: 20px;
 }
 
+/* Asegurar que el combo box tenga el mismo estilo que otros inputs y botones */
+.search-bar select,
+.search-bar input[type="text"] {
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
 /* Hacer que los botones tengan el mismo estilo */
 button {
     background-color: #7c4dff;
@@ -71,24 +81,31 @@ button:hover {
     text-align: center;
 }
 
-.project .status.on-track {
-    background-color: #03d30d;
+.project .status.doing {
+    background-color: #b399ff; /* Lila claro */
 }
 
-.project .status.at-risk {
-    background-color: #e6e213;
+.project .status.en-riesgo {
+    background-color: #ff9800; /* Naranja */
 }
 
-.project .status.off-track {
-    background-color: #dc3545;
+.project .status.fuera-de-tiempo {
+    background-color: #f44336; /* Rojo */
 }
 
-.project .url a {
+/* Eliminar el borde de los enlaces */
+.projects a {
+    text-decoration: none;
+    color: inherit;
+    border: none; /* Elimina el borde de los enlaces */
+}
+
+.projects .project .url a {
     color: #007bff;
     text-decoration: none;
 }
 
-.project .url a:hover {
+.projects .project .url a:hover {
     text-decoration: underline;
 }
 
@@ -99,7 +116,7 @@ button:hover {
     padding: 5px 10px;
     border-radius: 4px;
     cursor: pointer;
-    justify-self: end; /* Asegura que el botón esté al final */
+    justify-self: end;
 }
 
 .delete-button:hover {
