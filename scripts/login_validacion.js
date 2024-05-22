@@ -17,7 +17,5 @@ function validateForm() {
         document.getElementById("passwordError").style.display = "none";
     }
 
-    // Si todas las validaciones pasan, redirigir a proyectos.html
-    window.location.href = "./proyectos.html";
-    return false;
+    return true;
 }
