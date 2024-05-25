@@ -1,4 +1,6 @@
-function validateForm() {
+function validateForm(event) {
+    event.preventDefault(); // Prevenir el envío del formulario por defecto
+
     // Validar el nombre de usuario
     var username = document.getElementById("username").value;
     if (username.length < 3 || username.length > 20) {
@@ -17,5 +19,10 @@ function validateForm() {
         document.getElementById("passwordError").style.display = "none";
     }
 
-    return true;
+    // Redirigir a otra página si la validación es exitosa
+    window.location.href = "./proyectos.html";
+    return false; // Evitar que el formulario se envíe de la forma tradicional
 }
+
+// Asociar la función validateForm al evento onsubmit del formulario
+document.querySelector("form").addEventListener("submit", validateForm);

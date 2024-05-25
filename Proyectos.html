@@ -1,37 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles/styles.css">
     <link rel="stylesheet" href="./styles/style_proyectos.css">
+    <link rel="stylesheet" href="./styles/styles_new.css">
+    <link rel="icon" href="./assets/icons/logo.svg" type="image/x-icon">
+
     <title>Proyectos</title>
 </head>
+
 <body>
     <header class="header">
-        <div class="logo" alt="logo">
-            <img src="assets/icons/logo.svg" height="30" width="30">
-            <h1>NOMBRE DE PRODUCTO</h1>
+        <div class="logo">
+            <img src="./assets/icons/logo.svg" class="logo img"></img>
+            <a href="./index.html" class="logo h1">
+                <h1>MEGA TASK</h1>
+            </a>
         </div>
         <nav>
             <ul>
-                <li><a href="./Proyectos.html">Proyectos</a></li>
-                <li><a href="./Mis tareas.html">Mis tareas</a></li>
+                <li><a href="./index.html"> Home</a></li>
             </ul>
+
+            <a href="./Formulario_contacto.html" class="btn btn_principal">Ayuda</a>
         </nav>
-        <div class="header-fields">
-            <button href="./Formulario_incidente.html" class="header-button">Crear</button>
-            <div id="search" class="search">
-                <input type="text" placeholder="Search">
-            </div>
-            <div class="user-icon">
-                <img src="./assets/icons/options.svg" height="30" width="30">
-                <img src="./assets/icons/user.svg" height="30" width="30">
-            </div>
-        </div>
     </header>
 
-    <div class="container">
+
+    <main class="content">
         <h1>Proyectos</h1>
         <div class="search-bar">
             <input class="search" type="text" placeholder="Buscar proyectos" id="search-input">
@@ -43,12 +41,13 @@
                 <option value="Laura Martinez">Laura Martinez</option>
                 <option value="Pedro Lopez">Pedro Lopez</option>
             </select>
-            <button>Filtrar por etiqueta</button>
+            <button class="btn btn_principal">Filtrar por etiqueta</button>
         </div>
         <div class="projects"></div>
-    </div>
-    
+    </main>
+
     <script src="./scripts/proyectos.js"></script>
     <footer></footer>
 </body>
+
 </html>

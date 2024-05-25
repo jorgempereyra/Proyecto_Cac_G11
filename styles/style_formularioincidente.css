@@ -1,5 +1,6 @@
 .breadcrumb {
     margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 .breadcrumb a {
@@ -43,22 +44,39 @@
     font-size: 1.2em;
 }
 
-.status {
-    width: fit-content;
-    padding: 5px 10px;
+
+.project {
+    align-items: center;
+    padding: 10px 20px;
+    background: #fff;
     border-radius: 4px;
+    border: 1px solid #ddd;
+    width: fit-content;
 }
 
-.status.TODO {
-    background-color: #464646;
+.project:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.status.WIP {
-    background-color: #e6e213;
+.project .status {
+    padding: 5px 10px;
+    border-radius: 12px;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    width: fit-content;
 }
 
-.status.DONE {
-    background-color: #03d30d;
+.project.status.doing {
+    background-color: #b399ff; /* Lila claro */
+}
+
+.project.status.en-riesgo {
+    background-color: #ff9800; /* Naranja */
+}
+
+.project.status.fuera-de-tiempo {
+    background-color: #f44336; /* Rojo */
 }
 
 .task-description {

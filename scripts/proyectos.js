@@ -114,7 +114,7 @@ async function loadProjects() {
                     <span class="icon">${project.icon}</span>
                     <span class="name"><a href="incidentes_proyectos.html?id=${project.id}">${project.name}</a></span>
                     <span class="type">${project.type}</span>
-                    <span class="status ${project.status.toLowerCase().replace(/ /g, '-')}">${project.status}</span>
+                    <span class="project status ${project.status.toLowerCase().replace(/ /g, '-')}">${project.status}</span>
                     <span class="responsible">${project.responsible}</span>
                     <span class="url"><a href="#">${project.url}</a></span>
                     <button class="delete-button">Eliminar</button>

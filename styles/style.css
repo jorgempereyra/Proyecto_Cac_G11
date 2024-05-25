@@ -230,99 +230,6 @@ button:hover {
     border: 1px solid var(--gris);
 }
 
-/* generic_classes */
-.flex {
-    display: flex;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    width: 100%;
-}
-
-/*fondo con imagen*/
-.flex.background_image {
-    margin: 0;
-    padding: 0;
-    background-image: var(--background_colores);
-    background-size: cover;
-    height: 100vh;
-    background-repeat: repeat repeat;
-}
-
-.float_form {
-    flex-direction: column;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: var(--negro);
-    border-width: 1px;
-    border-style: solid;
-    border-color: var(--gris);
-    margin: 1% 5%;
-    padding: 15px 40px;
-    background-color: var(--blanco);
-    height: fit-content;
-}
-
-.div_row {
-    color: var(--negro);
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-    font-size: 16px;
-    text-align: center;
-}
-
-.div_row.form_labeled {
-    padding: 5px 0% 5px 0%;
-    margin: 0;
-    align-items: left;
-    justify-content: space-evenly;
-}
-
-.div_row.form_selector {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-}
-
-.div_column {
-    color: var(--negro);
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    align-items: center;
-    justify-content: space-around;
-    font-size: 16px;
-    text-align: center;
-}
-
-.div_column.div_form {
-    justify-content: center;
-    text-align: center;
-}
-
-.div_column.form_labeled {
-    padding: 5px 0% 5px 0%;
-    margin: 0;
-    align-items: left;
-
-}
-
-.container50 {
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-    align-items: center;
-    justify-content: center;
-    padding: 5%;
-}
-
 /* fields */
 
 .label_field {
@@ -378,16 +285,6 @@ button:hover {
     text-align: left;
 }
 
-/*Styles Login*/
-.login_title {
-    min-width: 300px;
-    background-image: var(--background_colores);
-    background-size: cover;
-    color: var(--blanco);
-    align-items: center;
-    justify-content: start;
-}
-
 /* Top bar con botoneras*/
 .top_bar {
     color: var(--negro);
@@ -413,19 +310,7 @@ button:hover {
 
 }
 
-/* Imagen login */
 
-.div-login-img{
-    display: none;
-    align-self: center;
-    width: 50%;
-}
-
-.div-login-img img{
-    width: 75%;
-    height: 90%;
-    margin: 1rem;
-}
 /* Clases de los div del index */
 
 .div-center {

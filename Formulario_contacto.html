@@ -1,21 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario de Contacto</title>
     <link rel="stylesheet" href="styles/style_formulariocontacto.css">
-    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/styles_new.css">
+    <link rel="icon" href="./assets/icons/logo.svg" type="image/x-icon">
+
 </head>
+
 <body>
-    <header>
-        <div class="logo" alt="logo">
-            <img src="assets/icons/logo.svg" height="30" width="30">
-            <h1>NOMBRE DE PRODUCTO</h1>
+    <header class="header">
+        <div class="logo">
+            <img src="./assets/icons/logo.svg" class="logo img"></img>
+            <a href="./index.html" class="logo h1">
+                <h1>MEGA TASK</h1>
+            </a>
         </div>
-        <div class="header-fields">
-            <a href="/index.html" class="header-button">Home</a>
-        </div>
+        <nav>
+            <ul>
+                <li><a href="./index.html"> Home</a></li>
+                <li><a href="./registro.html"> Registrarse</a></li>
+                <li><a href="./Proyectos.html"> Proyectos </a></li>
+            </ul>
+
+            <a href="./login.html" class="btn btn_principal">Iniciar sesión</a>
+        </nav>
     </header>
 
     <div class="flex background_image">
@@ -24,47 +36,49 @@
             <form action="#" method="post">
                 <div class="div_row form_labeled">
 
-                        <label for="nombre_apellido" class="label_field">Nombre y Apellido</label>
-                        <input type="text" id="nombre_apellido" name="nombre_apellido" class="input_field input_labeled"></input>
+                    <label for="nombre_apellido" class="label_field">Nombre y Apellido</label>
+                    <input type="text" id="nombre_apellido" name="nombre_apellido"
+                        class="input_field input_labeled"></input>
 
                 </div>
                 <div class="div_row form_labeled">
-                    
-                    <br><label for="email" class="label_field">Email</label>
-                        <input type="email" id="email" name="email" class="input_field input_labeled"></input>
-                        <br><label for="telefono" class="label_field">Teléfono</label>
-                        <input type="tel" id="telefono" name="telefono" class="input_field input_labeled"></input>
-                        
-                    </div>
 
-                        <div class="div_row form_labeled"> 
-                            <br><label for="motivo_contacto" class="label_field">Motivo de Contacto</label>
-                        <select id="motivo_contacto" name="motivo_contacto" class="input_field input_selection">
-                            <option value="Consulta">Consulta</option>
-                            <option value="Pedido de cotización">Pedido de cotización</option>
-                            <option value="Reporte de bug">Reporte de bug</option>
-                        </select>
+                    <br><label for="email" class="label_field">Email</label>
+                    <input type="email" id="email" name="email" class="input_field input_labeled"></input>
+                    <br><label for="telefono" class="label_field">Teléfono</label>
+                    <input type="tel" id="telefono" name="telefono" class="input_field input_labeled"></input>
 
                 </div>
-        
-                <div class="div_row form_labeled"> 
-                        <br><label for="mensaje" class="label_field">Mensaje</label><br>
-                        <textarea id="mensaje" name="mensaje" rows="20" class="input_field input_textarea"></textarea>
+
+                <div class="div_row form_labeled">
+                    <br><label for="motivo_contacto" class="label_field">Motivo de Contacto</label>
+                    <select id="motivo_contacto" name="motivo_contacto" class="input_field input_selection">
+                        <option value="Consulta">Consulta</option>
+                        <option value="Pedido de cotización">Pedido de cotización</option>
+                        <option value="Reporte de bug">Reporte de bug</option>
+                    </select>
+
+                </div>
+
+                <div class="div_row form_labeled">
+                    <br><label for="mensaje" class="label_field">Mensaje</label><br>
+                    <textarea id="mensaje" name="mensaje" rows="20" class="input_field input_textarea"></textarea>
+                </div>
+                <div class="div_row form_labeled">
+                    <span class="label_field">¿Desea recibir promociones?</span>
+                    <div class="div_row form_selector">
+
+                        <input type="radio" id="si" name="info" value="si" class="input_field input_labeled"></input>
+                        <label for="si">Sí</label>
+                        <input type="radio" id="no" name="info" value="no" class="input_field input_labeled"></input>
+                        <label for="no">No</label>
                     </div>
-                        <div class="div_row form_labeled">
-                            <span class="label_field">¿Desea recibir promociones?</span>
-                            <div class="div_row form_selector">
-                            
-                            <input type="radio" id="si" name="info" value="si" class="input_field input_labeled"></input>
-                            <label for="si">Sí</label>
-                            <input type="radio" id="no" name="info" value="no" class="input_field input_labeled"></input>
-                            <label for="no">No</label>
-                        </div>
-                        </div>
-                        <button type="submit" class="btn btn_principal">Enviar Datos</button>
+                </div>
+                <button type="submit" class="btn btn_principal">Enviar Datos</button>
 
             </form>
         </div>
     </div>
 </body>
+
 </html>

@@ -1,56 +1,57 @@
-*{
-    font-family: 'Courier New', Courier, monospace;
-    font-size: medium;
-}
+/* generic_classes */
 
-
-.containersDivsTitle{
-    background-image: url(../Background.png);
-    width: 50%;
+.flex {
     display: flex;
-    align-items: start;
-    justify-content: center;
-    color: white;
-    text-decoration: underline white;
-    
-
+    flex-direction: row;
+    height: 100vh;
 }
 
-.containersDivsLogin{
+/* fondo con imagen */
+.container50 {
+    display: flex;
+    flex-direction: column;
     width: 50%;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.container50.image {
+    background-image: var(--background_colores);
+    background-size: cover;
+    background-position: center;
+}
+
+.container50.form {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 20px;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: var(--border_radius);
 }
 
-.formLogin{
-    display: flex;
-    width: 75%;
-    flex-direction: column;
-
+.product-name {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    font-family: var(--Secular);
 }
 
-.divsForm{
-    margin-bottom: 1rem;
-
+h2 {
+    margin-bottom: 20px;
+    font-family: var(--Roboto);
 }
 
-.inputsForm{
-    text-align: center;
-    border-radius: 15px;
+input.input_field {
     width: 100%;
-}
-.btn-iniciar-sesion{
-    border-radius: 15px;
-    text-align: center;
-    margin: 0px 30px 0 30px;
-    color: white;
-    background-color: #ee8d08;
-    transition-duration: 0.4s;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: var(--border_radius);
+    border: 1px solid #ccc;
+    font-size: 1em;
 }
 
-.btn-iniciar-sesion:hover{
-    background-color: blueviolet;
-    color: white;
-}
+

@@ -6,89 +6,97 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="stylesheet" href="styles/style.css">
-    <link rel="stylesheet" href="styles/styles.css">
-
-    <title>Document</title>
+    <link rel="stylesheet" href="styles/styles_new.css">
+    <link rel="stylesheet" href="styles/style_index.css">
+    <link rel="icon" href="./assets/icons/logo.svg" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/603b0b508d.js" crossorigin="anonymous"></script>
+    <title>Home</title>
 </head>
 
 <body>
-    <header>
-        <div class="logo" alt="logo">
-            <img src="assets/icons/logo.svg" height="30" width="30">
-            <h1>NOMBRE DE PRODUCTO</h1>
+    <header class="header">
+        <div class="logo">
+            <img src="./assets/icons/logo.svg" class="logo img"></img>
+            <a href="./index.html" class="logo h1">
+                <h1>MEGA TASK</h1>
+            </a>
         </div>
         <nav>
             <ul>
-                <li><a href="#"> Registrarse</a></li>
+                <li><a href="./index.html"> Home</a></li>
+                <li><a href="./login.html"> Login</a></li>
+                <li><a href="./Proyectos.html"> Proyectos </a></li>
             </ul>
+
+            <a href="./Formulario_contacto.html" class="btn btn_principal">Contacto</a>
+            <i class="fa-solid fa-user"></i>
         </nav>
-        <div class="header-fields">
-            <a href="/Formulario_contacto.html" class="header-button">Contacto</a>
-            <div class="user-icon">
-
-                <img src="assets/icons/user.svg" href="/login.html" height="30" width="30">
-            </div>
-        </div>
     </header>
-<main>
-    <div class="div-center">
-        <div class="div-img-text">
 
-            <div class="div-img">
-                <img src="assets/img-div.png" alt="">
-            </div>
-            <div class="div-text">
-                <h1>Tema del cual hablar</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste dignissimos accusamus veritatis a amet
-                    nemo, itaque odio fugit explicabo adipisci, impedit voluptas eius, deleniti consectetur officiis
-                    ullam
-                    dolor?</p>
-                <div class="btn-div-text">
-                    <button type="button" class="btn">Prueba gratis</button>
-                    <a href="login.html"><button class="btn">Login</button></a>
+    <main class="content">
+        <div style="background-color:lightblue">
+            <div class="div-img-text">
+                <img src="./assets/Maqueta/Formulario_incidente.png" class="div-img">
+                <div class="div-text">
+                    <h2>Optimiza tu Soporte Técnico con Megatask</h2>
+                    <p>En el dinámico mundo de la tecnología, la eficiencia y la rapidez en la resolución de problemas
+                        son cruciales. Megatask se presenta como la herramienta definitiva para la gestión de tickets
+                        IT, diseñada para facilitar y optimizar el trabajo de los equipos de soporte técnico.</p>
                 </div>
             </div>
-
         </div>
 
-        <div class="div-cart">
-            <h1>SARATAZA</h1>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Beatae, porro blanditiis quibusdam tempora
-                tenetur
-                quia sit incidunt, perferendis inventore quisquam soluta voluptates expedita sunt esse laudantium
-                tempore
-                nesciunt voluptatem. Corrupti sit consequatur optio sequi.</p>
-            <a href=""><button type="button" class="btn">Registrarse</button></a>
-        </div>
-        <div class="div-img-text2">
-
+        <div style="background-color:lightsalmon">
             <div class="div-text">
-                <h1>Tema del cual hablar</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste dignissimos accusamus veritatis a amet
-                    nemo, itaque odio fugit explicabo adipisci, impedit voluptas eius, deleniti consectetur officiis
-                    ullam
-                    dolor?</p>
-                <div class="btn-div-text">
-                    <button type="button" class="btn">Prueba gratis</button>
-                    <a href="login.html"><button type="button" class="btn">Login</button></a>
-                </div>
+                <h3>Características Principales</h3>
+                <ul>
+                    <li><strong>Interfaz Intuitiva:</strong> Megatask ofrece una interfaz fácil de usar, permitiendo a
+                        los agentes de soporte gestionar y resolver tickets de manera rápida y eficaz. La navegación
+                        simplificada reduce el tiempo de formación y aumenta la productividad desde el primer día.</li>
+                    <li><strong>Gestión Centralizada de Tickets:</strong> Nuestra plataforma centraliza todos los
+                        tickets en un solo lugar, facilitando su seguimiento y priorización. Desde la creación hasta la
+                        resolución, cada paso del proceso está documentado y accesible.</li>
+                    <li><strong>Automatización de Tareas:</strong> Automatiza las tareas repetitivas y ahorra tiempo
+                        valioso con las funciones avanzadas de automatización de Megatask. Los flujos de trabajo
+                        configurables permiten a los equipos concentrarse en resolver problemas críticos en lugar de
+                        gestionar procesos.</li>
+                    <li><strong>Reportes y Análisis en Tiempo Real:</strong> Obtén una visión detallada del rendimiento
+                        del equipo y del estado de los tickets con nuestros reportes y análisis en tiempo real.
+                        Identifica tendencias, detecta cuellos de botella y mejora continuamente tus procesos.</li>
+                    <li><strong>Integración con Herramientas Populares:</strong> Megatask se integra fácilmente con las
+                        herramientas más populares del mercado, incluyendo sistemas de correo electrónico, plataformas
+                        de comunicación y software de gestión de proyectos, asegurando un flujo de trabajo sin
+                        interrupciones.</li>
+                </ul>
             </div>
-            <div class="div-img">
-                <img src="assets/img-div.png" alt="">
-            </div>
-
-
         </div>
-    </div>
-    <div>
-        <img src=assets/icons/boton-flotante.svg href="/Formulario_incidente.html" class="boton-flotante"></a>
-    </div>
-</main>
-
-    <footer>
-
-    </footer>
+        <div style="background-color:lightblue">
+            <div class="div-img-text">
+                <div class="div-text">
+                    <h3>¿Por Qué Elegir Megatask?</h3>
+                    <ul>
+                        <li><strong>Mayor Eficiencia:</strong> Al reducir el tiempo dedicado a la gestión de tickets, tu
+                            equipo puede enfocarse en resolver problemas más rápido.</li>
+                        <li><strong>Satisfacción del Cliente:</strong> Mejora los tiempos de respuesta y la calidad del
+                            soporte, lo que se traduce en una mayor satisfacción del cliente.</li>
+                        <li><strong>Escalabilidad:</strong> Megatask crece contigo. Ya sea que tengas un pequeño equipo
+                            de soporte o una gran organización, nuestra solución se adapta a tus necesidades.</li>
+                        <li><strong>Soporte 24/7:</strong> Nuestro equipo de soporte está disponible las 24 horas del
+                            día, los 7 días de la semana, para ayudarte a sacar el máximo provecho de Megatask.</li>
+                    </ul>
+                </div>
+                <img src="./assets/Maqueta/Proyectos.png" class="div-img">
+            </div>
+        </div>
+        <div style="background-color:lightsalmon">
+            <div class="div-text">
+                <h3>Empieza Hoy Mismo</h3>
+                <p>No esperes más para llevar tu gestión de tickets IT al siguiente nivel. Regístrate hoy mismo y
+                    descubre cómo Megatask puede transformar tu departamento de soporte técnico.</p>
+                <a href="./Formulario_contacto.html" class="btn btn_principal">Contáctanos</a>
+            </div>
+        </div>
+    </main>
 
 </body>
 
