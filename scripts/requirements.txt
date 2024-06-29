@@ -1,0 +1,6 @@
+# requirements.txt
+Flask
+Flask-SQLAlchemy
+dotenv
+flask-cors
+mysql-connector-python
