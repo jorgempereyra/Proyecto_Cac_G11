@@ -1,10 +1,10 @@
-<!-- templates/select_persona.html -->
+<!-- templates/add_persona.html -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seleccionar Persona</title>
+    <title>Agregar Persona</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/styles_new.css') }}">
 </head>
 <body>
@@ -26,18 +26,12 @@
         </nav>
     </header>
     <main class="content">
-        <h2>Seleccionar Persona</h2>
-        {% if personas %}
-            <ul>
-                {% for persona in personas %}
-                    <li>
-                        <a href="{{ url_for('proyectos', id_persona=persona.id_Persona) }}">{{ persona.Nombre }}</a>
-                    </li>
-                {% endfor %}
-            </ul>
-        {% else %}
-            <p>No hay personas registradas. <a href="{{ url_for('add_persona') }}">Crea una persona</a> para empezar.</p>
-        {% endif %}
+        <h2>Agregar Persona</h2>
+        <form method="POST">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+            <button type="submit">Agregar</button>
+        </form>
     </main>
 </body>
 </html>

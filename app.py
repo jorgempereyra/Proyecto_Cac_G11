@@ -45,6 +45,7 @@ class Persona(db.Model):
     id_Persona = db.Column(db.Integer, primary_key=True, autoincrement=True)
     Nombre = db.Column(db.String(50), nullable=False)
     proyectos = db.relationship('Proyecto', back_populates='persona', cascade='all, delete-orphan')
+    tareas = db.relationship('Tarea', back_populates='persona', cascade='all, delete-orphan')
 
 class Proyecto(db.Model):
     __tablename__ = 'Proyectos'
@@ -53,6 +54,7 @@ class Proyecto(db.Model):
     Descripcion_Proyecto = db.Column(db.Text, nullable=False)
     id_Persona = db.Column(db.Integer, db.ForeignKey('Personas.id_Persona'))
     persona = db.relationship('Persona', back_populates='proyectos')
+    tareas = db.relationship('Tarea', back_populates='proyecto', cascade='all, delete-orphan')
 
 class Tarea(db.Model):
     __tablename__ = 'Tareas'
@@ -67,9 +69,9 @@ class Tarea(db.Model):
     proyecto = db.relationship('Proyecto', back_populates='tareas')
     persona = db.relationship('Persona', back_populates='tareas')
 
-Persona.tareas = db.relationship('Tarea', order_by=Tarea.id_Tarea, back_populates='persona')
-Proyecto.tareas = db.relationship('Tarea', order_by=Tarea.id_Tarea, back_populates='proyecto')
-Persona.proyectos = db.relationship("Proyecto", order_by=Proyecto.id_Proyecto, back_populates="persona")
+# Persona.tareas = db.relationship('Tarea', order_by=Tarea.id_Tarea, back_populates='persona')
+# Proyecto.tareas = db.relationship('Tarea', order_by=Tarea.id_Tarea, back_populates='proyecto')
+# Persona.proyectos = db.relationship("Proyecto", order_by=Proyecto.id_Proyecto, back_populates="persona")
 
 # Forms
 class RegistrationForm(FlaskForm):
@@ -97,6 +99,23 @@ def create_persona():
 def select_persona():
     personas = Persona.query.all()
     return render_template('select_persona.html', personas=personas)
+
+
+@app.route('/add_persona', methods=['GET', 'POST'])
+def add_persona():
+    if request.method == 'POST':
+        nombre = request.form.get('nombre')
+        if nombre:
+            nueva_persona = Persona(Nombre=nombre)
+            db.session.add(nueva_persona)
+            db.session.commit()
+            flash('Persona creada con éxito.')
+            return redirect(url_for('select_persona'))
+        else:
+            flash('El nombre no puede estar vacío.')
+    
+    return render_template('add_persona.html')
+
 
 @app.route('/personas/<int:id_persona>', methods=['GET'])
 def get_persona(id_persona):
@@ -261,6 +280,14 @@ def index():
         flash('No hay personas registradas. Por favor, crea una persona primero.')
         return redirect(url_for('select_persona'))
     return render_template('index.html', personas=personas)
+
+@app.route('/formulario_contacto')
+def formulario_contacto():
+    return render_template('formulario_contacto.html')
+
+@app.route('/formulario_registro')
+def formulario_registro():
+    return render_template('form_registro_usuario.html')
 
 
 if __name__ == '__main__':

@@ -28,9 +28,8 @@
                 {% if personas %}
                     <li><a href="{{ url_for('select_persona') }}"> Proyectos </a></li>
                 {% else %}
-                    <li><a href="{{ url_for('select_persona') }}"> Proyectos </a></li>
+                    <li><a href="{{ url_for('add_persona') }}"> Crear Persona </a></li>
                 {% endif %}
-                <li><a href="{{ url_for('proyectos') }}"> Proyectos </a></li>
             </ul>
 
             <a href="{{ url_for('formulario_contacto') }}" class="btn btn_principal">Contacto</a>
@@ -39,6 +38,10 @@
     </header>
 
     <main class="content">
+        <h2>Bienvenido a MEGA TASK</h2>
+        {% if not personas %}
+            <p>No hay personas registradas. <a href="{{ url_for('add_persona') }}">Crea una persona</a> para empezar.</p>
+        {% endif %}
         <div style="background-color:lightblue">
             <div class="div-img-text">
                 <img src="{{ url_for('static', filename='assets/Maqueta/Formulario_incidente.png')}}"  class="div-img">
