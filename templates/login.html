@@ -4,9 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles/styles_new.css">
-    <link rel="stylesheet" href="./styles/style_login.css">
-    <script src="login_validacion.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/styles_new.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/style_login.css') }}">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='assets/icons/logo.svg')}}">
+    <script src="{{ url_for('static', filename='scripts/login_validacion.js')}}"></script>
     <link rel="icon" href="./assets/icons/logo.svg" type="image/x-icon">
 
     <title>Iniciar Sesión</title>

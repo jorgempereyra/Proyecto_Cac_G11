@@ -6,29 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="stylesheet" href="styles/styles_new.css">
-    <link rel="stylesheet" href="styles/style_index.css">
-    <link rel="icon" href="./assets/icons/logo.svg" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/styles_new.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/style_index.css') }}">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='assets/icons/logo.svg')}}">
     <script src="https://kit.fontawesome.com/603b0b508d.js" crossorigin="anonymous"></script>
-    <title>Home</title>
+    <title>Inicio</title>
 </head>
 
 <body>
     <header class="header">
         <div class="logo">
-            <img src="./assets/icons/logo.svg" class="logo img"></img>
-            <a href="./index.html" class="logo h1">
+            <img src="{{ url_for('static', filename='assets/icons/logo.svg')}}" class="logo img"></img>
+            <a href="{{ url_for('index') }}" class="logo h1">
                 <h1>MEGA TASK</h1>
             </a>
         </div>
         <nav>
             <ul>
-                <li><a href="./index.html"> Home</a></li>
-                <li><a href="./login.html"> Login</a></li>
-                <li><a href="./Proyectos.html"> Proyectos </a></li>
+                <li><a href="{{ url_for('index') }}"> Home</a></li>
+                <li><a href="{{ url_for('login') }}"> Login</a></li>
+                <li><a href="{{ url_for('proyectos') }}"> Proyectos </a></li>
             </ul>
 
-            <a href="./Formulario_contacto.html" class="btn btn_principal">Contacto</a>
+            <a href="{{ url_for('formulario_contacto') }}" class="btn btn_principal">Contacto</a>
             <i class="fa-solid fa-user"></i>
         </nav>
     </header>
@@ -36,7 +36,7 @@
     <main class="content">
         <div style="background-color:lightblue">
             <div class="div-img-text">
-                <img src="./assets/Maqueta/Formulario_incidente.png" class="div-img">
+                <img src="{{ url_for('static', filename='assets/Maqueta/Formulario_incidente.png')}}"  class="div-img">
                 <div class="div-text">
                     <h2>Optimiza tu Soporte Técnico con Megatask</h2>
                     <p>En el dinámico mundo de la tecnología, la eficiencia y la rapidez en la resolución de problemas
@@ -85,7 +85,7 @@
                             día, los 7 días de la semana, para ayudarte a sacar el máximo provecho de Megatask.</li>
                     </ul>
                 </div>
-                <img src="./assets/Maqueta/Proyectos.png" class="div-img">
+                <img src="{{ url_for('static', filename='assets/Maqueta/Proyectos.png')}}"  class="div-img">
             </div>
         </div>
         <div style="background-color:lightsalmon">
