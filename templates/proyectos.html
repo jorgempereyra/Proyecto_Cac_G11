@@ -29,7 +29,7 @@
     </header>
 
 
-    <main class="content">
+    <!-- <main class="content">
         <h1>Proyectos</h1>
         <div class="search-bar">
             <input class="search" type="text" placeholder="Buscar proyectos" id="search-input">
@@ -44,9 +44,22 @@
             <button class="btn btn_principal">Filtrar por etiqueta</button>
         </div>
         <div class="projects"></div>
+    </main> -->
+
+
+    <main class="content">
+        <h2>Proyectos</h2>
+        <ul>
+            {% for proyecto in proyectos %}
+                <li>
+                    <h3>{{ proyecto.Nombre_Proyecto }}</h3>
+                    <p>{{ proyecto.Descripcion_Proyecto }}</p>
+                </li>
+            {% endfor %}
+        </ul>
     </main>
 
-    <script src="./scripts/proyectos.js"></script>
+    <!-- <script src="./scripts/proyectos.js"></script> -->
     <footer></footer>
 </body>
 

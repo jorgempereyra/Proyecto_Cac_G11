@@ -1,71 +1,84 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario de Contacto</title>
-    <link rel="stylesheet" href="styles/style_formulariocontacto.css">
-    <link rel="stylesheet" href="styles/styles_new.css">
-    <link rel="icon" href="./assets/icons/logo.svg" type="image/x-icon">
+    <title>Registro de Usuario</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/styles_new.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/formulario_contacto.css') }}">
+    <script>
+        function validateForm() {
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+            var confirmPassword = document.getElementById("confirm_password").value;
+            var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+            // Validación de correo
+            if (!emailPattern.test(email)) {
+                document.getElementById("emailError").style.display = "block";
+                return false;
+            } else {
+                document.getElementById("emailError").style.display = "none";
+            }
+
+            // Validación de contraseñas
+            if (password !== confirmPassword) {
+                document.getElementById("passwordError").style.display = "block";
+                return false;
+            } else {
+                document.getElementById("passwordError").style.display = "none";
+            }
+
+            return true;
+        }
+    </script>
 </head>
 
 <body>
     <header class="header">
         <div class="logo">
-            <img src="./assets/icons/logo.svg" class="logo img"></img>
-            <a href="./index.html" class="logo h1">
+            <img src="{{ url_for('static', filename='assets/icons/logo.svg')}}" class="logo img"></img>
+            <a href="{{ url_for('index') }}" class="logo h1">
                 <h1>MEGA TASK</h1>
             </a>
         </div>
         <nav>
             <ul>
-                <li><a href="./index.html"> Home</a></li>
-                <li><a href="./registro.html"> Registrarse</a></li>
-                <li><a href="./Proyectos.html"> Proyectos </a></li>
+                <li><a href="{{ url_for('index') }}"> Home</a></li>
+                <li><a href="{{ url_for('login') }}"> Login</a></li>
+                <li><a href="{{ url_for('proyectos') }}"> Proyectos </a></li>
             </ul>
-
-            <a href="./login.html" class="btn btn_principal">Iniciar sesión</a>
+            <a href="{{ url_for('formulario_contacto') }}" class="btn btn_principal">Contacto</a>
+            <i class="fa-solid fa-user"></i>
         </nav>
     </header>
 
-    <div class="flex background_image">
-        <div class="float_form">
-            <h1 class="title">Formulario de Contacto</h1>
-            <form action="#" method="post">
-                <div class="div_row form_labeled">
-
-                    <label for="nombre_apellido" class="label_field">Nombre y Apellido</label>
-                    <input type="text" id="nombre_apellido" name="nombre_apellido"
-                        class="input_field input_labeled"></input>
-
+    <main class="flex">
+        <div class="container50 image"></div>
+        <div class="container50 form">
+            <h2>¡Regístrate!</h2>
+            <form method="post" onsubmit="return validateForm()">
+                {{ form.hidden_tag() }}
+                <div>
+                    {{ form.username.label }} {{ form.username }}
                 </div>
-                <div class="div_row form_labeled">
-
-                    <br><label for="email" class="label_field">Email</label>
-                    <input type="email" id="email" name="email" class="input_field input_labeled"></input>
-                    <br><label for="password" class="label_field">Contraseña</label>
-                    <input type="password" id="password" name="pass" class="input_field input_labeled"></input>
-                    <br><label for="password" class="label_field">Confirmar Contraseña</label>
-                    <input type="password" id="password" name="confirm_pass" class="input_field input_labeled"></input>
+                <div>
+                    {{ form.email.label }} {{ form.email }}
+                    <span id="emailError" style="color: red; display: none;">Por favor ingresa un correo electrónico válido.</span>
                 </div>
-
-                <div class="div_row form_labeled">
-                    <br><label for="owner_type" class="label_field">Tipo de Usuario</label>
-                    <select id="owner_type" name="owner_type" class="input_field input_selection">
-                        <option value="owner">Product Owner</option>
-                        <option value="support">Soportista</option>
-                        <option value="client">Cliente</option>
-                    </select>
-
+                <div>
+                    {{ form.password.label }} {{ form.password }}
                 </div>
-                <button type="submit" class="btn btn_principal">Enviar Datos</button>
-
+                <div>
+                    {{ form.confirm_password.label }} {{ form.confirm_password }}
+                    <span id="passwordError" style="color: red; display: none;">Las contraseñas no coinciden.</span>
+                </div>
+                <div>
+                    {{ form.submit }}
+                </div>
             </form>
-            <script src="./scripts/usuarios.js"></script>
         </div>
-    </div>
+    </main>
 </body>
-
 </html>
