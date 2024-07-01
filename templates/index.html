@@ -25,6 +25,11 @@
             <ul>
                 <li><a href="{{ url_for('index') }}"> Home</a></li>
                 <li><a href="{{ url_for('login') }}"> Login</a></li>
+                {% if personas %}
+                    <li><a href="{{ url_for('select_persona') }}"> Proyectos </a></li>
+                {% else %}
+                    <li><a href="{{ url_for('select_persona') }}"> Proyectos </a></li>
+                {% endif %}
                 <li><a href="{{ url_for('proyectos') }}"> Proyectos </a></li>
             </ul>
 
