@@ -144,18 +144,45 @@ def delete_persona(id_persona):
     return jsonify({"message": "Persona no encontrada"}), 404
 
 # Rutas CRUD para Proyectos
-@app.route('/proyectos/<int:id_persona>', endpoint='proyectos' )
-def proyectos(id_persona):
+# @app.route('/proyectos/<int:id_persona>', endpoint='proyectos' )
+# def proyectos(id_persona):
+#     persona = Persona.query.get(id_persona)
+#     if not persona:
+#         flash('Persona no encontrada.')
+#         return redirect(url_for('index'))
+    
+#     proyectos = persona.proyectos
+#     return render_template('proyectos.html', proyectos=proyectos)
+
+
+@app.route('/proyectos', endpoint='proyectos' )
+def proyectos():
+        personas = Persona.query.all()
+        return render_template('proyectos.html', personas=personas)
+
+@app.route('/api/proyectos/<int:id_persona>', methods=['GET'])
+def api_proyectos(id_persona):
     persona = Persona.query.get(id_persona)
     if not persona:
-        flash('Persona no encontrada.')
-        return redirect(url_for('index'))
-    
-    proyectos = persona.proyectos
-    return render_template('proyectos.html', proyectos=proyectos)
+        return jsonify({"error": "Persona no encontrada"}), 404
 
-@app.route('/proyectos', methods=['POST'])
-def create_proyecto():
+    proyectos = Proyecto.query.filter_by(id_Persona=id_persona).all()
+    proyectos_list = [
+        {
+            "id": proyecto.id_Proyecto,
+            "icon": "⭐",  # Placeholder para el icono
+            "name": proyecto.Nombre_Proyecto,
+            "type": "Desarrollo",  # Placeholder para el tipo
+            "status": "Doing",  # Placeholder para el estado
+            "responsible": persona.Nombre,
+            "url": "www.proyecto.com"  # Placeholder para la URL
+        } for proyecto in proyectos
+    ]
+
+    return jsonify({"projects": proyectos_list})
+
+@app.route('/api/proyectos', methods=['POST'])
+def api_create_proyecto():
     data = request.get_json()
     nuevo_proyecto = Proyecto(
         Nombre_Proyecto=data['Nombre_Proyecto'],
@@ -164,88 +191,55 @@ def create_proyecto():
     )
     db.session.add(nuevo_proyecto)
     db.session.commit()
-    return jsonify({"message": "Proyecto creado", "proyecto": {"id_Proyecto": nuevo_proyecto.id_Proyecto, "Nombre_Proyecto": nuevo_proyecto.Nombre_Proyecto}}), 201
+    return jsonify({"message": "Proyecto creado", "proyecto": nuevo_proyecto.id_Proyecto}), 201
 
-@app.route('/proyectos/<int:id_proyecto>', methods=['GET'])
-def get_proyecto(id_proyecto):
-    proyecto = Proyecto.query.get(id_proyecto)
-    if proyecto:
-        return jsonify({"id_Proyecto": proyecto.id_Proyecto, "Nombre_Proyecto": proyecto.Nombre_Proyecto, "Descripcion_Proyecto": proyecto.Descripcion_Proyecto, "id_Persona": proyecto.id_Persona})
-    return jsonify({"message": "Proyecto no encontrado"}), 404
-
-@app.route('/proyectos/<int:id_proyecto>', methods=['PUT'])
-def update_proyecto(id_proyecto):
+@app.route('/api/proyectos/<int:id_proyecto>', methods=['PUT'])
+def api_update_proyecto(id_proyecto):
     data = request.get_json()
     proyecto = Proyecto.query.get(id_proyecto)
-    if proyecto:
-        proyecto.Nombre_Proyecto = data['Nombre_Proyecto']
-        proyecto.Descripcion_Proyecto = data['Descripcion_Proyecto']
-        proyecto.id_Persona = data['id_Persona']
-        db.session.commit()
-        return jsonify({"message": "Proyecto actualizado", "proyecto": {"id_Proyecto": proyecto.id_Proyecto, "Nombre_Proyecto": proyecto.Nombre_Proyecto}})
-    return jsonify({"message": "Proyecto no encontrado"}), 404
+    if not proyecto:
+        return jsonify({"error": "Proyecto no encontrado"}), 404
 
-@app.route('/proyectos/<int:id_proyecto>', methods=['DELETE'])
-def delete_proyecto(id_proyecto):
+    proyecto.Nombre_Proyecto = data['Nombre_Proyecto']
+    proyecto.Descripcion_Proyecto = data['Descripcion_Proyecto']
+    proyecto.id_Persona = data['id_Persona']
+    db.session.commit()
+    return jsonify({"message": "Proyecto actualizado"})
+
+@app.route('/api/proyectos/<int:id_proyecto>', methods=['DELETE'])
+def api_delete_proyecto(id_proyecto):
     proyecto = Proyecto.query.get(id_proyecto)
-    if proyecto:
-        db.session.delete(proyecto)
-        db.session.commit()
-        return jsonify({"message": "Proyecto eliminado"})
-    return jsonify({"message": "Proyecto no encontrado"}), 404
+    if not proyecto:
+        return jsonify({"error": "Proyecto no encontrado"}), 404
+
+    db.session.delete(proyecto)
+    db.session.commit()
+    return jsonify({"message": "Proyecto eliminado"})
 
 # Rutas CRUD para Tareas
-@app.route('/tareas', methods=['POST'])
-def create_tarea():
-    data = request.get_json()
-    nueva_tarea = Tarea(
-        Tarea_Nombre=data['Tarea_Nombre'],
-        Tarea_Descripcion=data['Tarea_Descripcion'],
-        Tarea_Tipo=data['Tarea_Tipo'],
-        Fecha_Vencimiento=datetime.strptime(data['Fecha_Vencimiento'], '%Y-%m-%d').date(),
-        Fecha_Creacion=datetime.strptime(data['Fecha_Creacion'], '%Y-%m-%d').date(),
-        id_Proyecto=data['id_Proyecto'],
-        id_Persona=data['id_Persona']
-    )
-    db.session.add(nueva_tarea)
-    db.session.commit()
-    return jsonify({"message": "Tarea creada", "tarea": {"id_Tarea": nueva_tarea.id_Tarea, "Tarea_Nombre": nueva_tarea.Tarea_Nombre}}), 201
+@app.route('/api/tareas/<int:id_proyecto>', methods=['GET'])
+def api_tareas(id_proyecto):
+    proyecto = Proyecto.query.get(id_proyecto)
+    if not proyecto:
+        return jsonify({"error": "Proyecto no encontrado"}), 404
 
-@app.route('/tareas/<int:id_tarea>', methods=['GET'])
-def get_tarea(id_tarea):
-    tarea = Tarea.query.get(id_tarea)
-    if tarea:
-        return jsonify({"id_Tarea": tarea.id_Tarea, "Tarea_Nombre": tarea.Tarea_Nombre, "Tarea_Descripcion": tarea.Tarea_Descripcion, "Tarea_Tipo": tarea.Tarea_Tipo, "Fecha_Vencimiento": tarea.Fecha_Vencimiento, "Fecha_Creacion": tarea.Fecha_Creacion, "id_Proyecto": tarea.id_Proyecto, "id_Persona": tarea.id_Persona})
-    return jsonify({"message": "Tarea no encontrada"}), 404
+    tareas = Tarea.query.filter_by(id_Proyecto=id_proyecto).all()
+    tareas_list = [
+        {
+            "id": tarea.id_Tarea,
+            "titulo": tarea.Tarea_Nombre,
+            "asignado": tarea.persona.Nombre,
+            "estado": tarea.Tarea_Tipo  # Ajustar según el campo real
+        } for tarea in tareas
+    ]
 
-@app.route('/tareas/<int:id_tarea>', methods=['PUT'])
-def update_tarea(id_tarea):
-    data = request.get_json()
-    tarea = Tarea.query.get(id_tarea)
-    if tarea:
-        tarea.Tarea_Nombre = data['Tarea_Nombre']
-        tarea.Tarea_Descripcion = data['Tarea_Descripcion']
-        tarea.Tarea_Tipo = data['Tarea_Tipo']
-        tarea.Fecha_Vencimiento = datetime.strptime(data['Fecha_Vencimiento'], '%Y-%m-%d').date()
-        tarea.Fecha_Creacion = datetime.strptime(data['Fecha_Creacion'], '%Y-%m-%d').date()
-        tarea.id_Proyecto = data['id_Proyecto']
-        tarea.id_Persona = data['id_Persona']
-        db.session.commit()
-        return jsonify({"message": "Tarea actualizada", "tarea": {"id_Tarea": tarea.id_Tarea, "Tarea_Nombre": tarea.Tarea_Nombre}})
-    return jsonify({"message": "Tarea no encontrada"}), 404
+    return jsonify({"tareas": tareas_list})
 
-@app.route('/tareas/<int:id_tarea>', methods=['DELETE'])
-def delete_tarea(id_tarea):
-    tarea = Tarea.query.get(id_tarea)
-    if tarea:
-        db.session.delete(tarea)
-        db.session.commit()
-        return jsonify({"message": "Tarea eliminada"})
-    return jsonify({"message": "Tarea no encontrada"}), 404
+
 
 # Rutas para Registro y Login
-@app.route('/register', methods=['GET', 'POST'])
-def register():
+@app.route('/formulario_registro', methods=['GET', 'POST'])
+def formulario_registro():
     form = RegistrationForm()
     if form.validate_on_submit():
         existing_user = Usuario.query.filter_by(username=form.username.data).first()
@@ -258,7 +252,7 @@ def register():
         db.session.commit()
         flash('Registration successful. Please log in.')
         return redirect(url_for('login'))
-    return render_template('form_registro_usuario.html', form=form)
+    return render_template('formulario_registro.html', form=form)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -284,10 +278,6 @@ def index():
 @app.route('/formulario_contacto')
 def formulario_contacto():
     return render_template('formulario_contacto.html')
-
-@app.route('/formulario_registro')
-def formulario_registro():
-    return render_template('form_registro_usuario.html')
 
 
 if __name__ == '__main__':

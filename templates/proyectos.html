@@ -1,3 +1,4 @@
+<!-- templates/proyectos.html -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,42 +25,199 @@
                 <li><a href="{{ url_for('index') }}"> Inicio</a></li>
             </ul>
 
-            <a href="./Formulario_contacto.html" class="btn btn_principal">Ayuda</a>
+            <a href="{{ url_for('formulario_contacto') }}" class="btn btn_principal">Ayuda</a>
         </nav>
     </header>
 
-
-    <!-- <main class="content">
+    <main class="content">
         <h1>Proyectos</h1>
         <div class="search-bar">
             <input class="search" type="text" placeholder="Buscar proyectos" id="search-input">
             <select id="filter-owner">
                 <option value="">Seleccionar propietario</option>
-                <option value="Juan Perez">Juan Perez</option>
-                <option value="Ana Gomez">Ana Gomez</option>
-                <option value="Carlos Ruiz">Carlos Ruiz</option>
-                <option value="Laura Martinez">Laura Martinez</option>
-                <option value="Pedro Lopez">Pedro Lopez</option>
+                {% for persona in personas %}
+                    <option value="{{ persona.id_Persona }}">{{ persona.Nombre }}</option>
+                {% endfor %}
+                <option value="add_persona">Agregar nueva persona</option>
             </select>
-            <button class="btn btn_principal">Filtrar por etiqueta</button>
+            <button class="btn btn_principal" id="filter-btn">Filtrar por etiqueta</button>
+            <button class="btn btn_secundario" id="add-project-btn">Agregar Proyecto</button>
         </div>
         <div class="projects"></div>
-    </main> -->
-
-
-    <main class="content">
-        <h2>Proyectos</h2>
-        <ul>
-            {% for proyecto in proyectos %}
-                <li>
-                    <h3>{{ proyecto.Nombre_Proyecto }}</h3>
-                    <p>{{ proyecto.Descripcion_Proyecto }}</p>
-                </li>
-            {% endfor %}
-        </ul>
     </main>
 
-    <!-- <script src="./scripts/proyectos.js"></script> -->
+    <script>
+        document.getElementById('filter-owner').addEventListener('change', function() {
+            if (this.value === 'add_persona') {
+                window.location.href = "{{ url_for('add_persona') }}";
+            } else {
+                loadProjects(this.value);
+            }
+        });
+
+        document.getElementById('add-project-btn').addEventListener('click', function() {
+            const personaId = document.getElementById('filter-owner').value;
+            if (personaId) {
+                const projectName = prompt("Ingrese el nombre del proyecto:");
+                const projectDescription = prompt("Ingrese la descripción del proyecto:");
+                if (projectName && projectDescription) {
+                    createProject(personaId, projectName, projectDescription);
+                }
+            } else {
+                alert("Por favor, seleccione un propietario primero.");
+            }
+        });
+
+        async function loadProjects(personaId) {
+            try {
+                const response = await fetch(`/api/proyectos/${personaId}`);
+                const data = await response.json();
+                const projects = data.projects;
+                const projectsContainer = document.querySelector('.projects');
+                projectsContainer.innerHTML = ''; // Limpiar proyectos existentes
+
+                projects.forEach(project => {
+                    const projectElement = document.createElement('div');
+                    projectElement.classList.add('project');
+                    projectElement.setAttribute('data-id', project.id);
+
+                    projectElement.innerHTML = `
+                        <span class="icon">${project.icon}</span>
+                        <span class="name"><a href="incidentes_proyectos.html?id=${project.id}">${project.name}</a></span>
+                        <span class="type">${project.type}</span>
+                        <span class="project status ${project.status.toLowerCase().replace(/ /g, '-')}">${project.status}</span>
+                        <span class="responsible">${project.responsible}</span>
+                        <span class="url"><a href="#">${project.url}</a></span>
+                        <button class="edit-button">✏️</button>
+                        <button class="delete-button">Eliminar</button>
+                    `;
+
+                    projectsContainer.appendChild(projectElement);
+                });
+
+                addEventListeners();
+            } catch (error) {
+                console.error('Error cargando proyectos:', error);
+            }
+        }
+
+        async function createProject(personaId, name, description) {
+            try {
+                const response = await fetch('/api/proyectos', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ Nombre_Proyecto: name, Descripcion_Proyecto: description, id_Persona: personaId })
+                });
+                const data = await response.json();
+                if (response.ok) {
+                    loadProjects(personaId);
+                } else {
+                    alert(`Error creando proyecto: ${data.error}`);
+                }
+            } catch (error) {
+                console.error('Error creando proyecto:', error);
+            }
+        }
+
+        async function deleteProject(projectId) {
+            try {
+                const response = await fetch(`/api/proyectos/${projectId}`, {
+                    method: 'DELETE'
+                });
+                const data = await response.json();
+                if (response.ok) {
+                    const personaId = document.getElementById('filter-owner').value;
+                    loadProjects(personaId);
+                } else {
+                    alert(`Error eliminando proyecto: ${data.error}`);
+                }
+            } catch (error) {
+                console.error('Error eliminando proyecto:', error);
+            }
+        }
+
+        async function editProject(projectId, personaId, name, description) {
+            try {
+                const response = await fetch(`/api/proyectos/${projectId}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ Nombre_Proyecto: name, Descripcion_Proyecto: description, id_Persona: personaId })
+                });
+                const data = await response.json();
+                if (response.ok) {
+                    loadProjects(personaId);
+                } else {
+                    alert(`Error editando proyecto: ${data.error}`);
+                }
+            } catch (error) {
+                console.error('Error editando proyecto:', error);
+            }
+        }
+
+        function addEventListeners() {
+            document.getElementById('search-input').addEventListener('input', function () {
+                const filter = this.value.toLowerCase();
+                const projects = document.querySelectorAll('.project');
+
+                projects.forEach(function (project) {
+                    const projectName = project.querySelector('.name').textContent.toLowerCase();
+                    if (projectName.includes(filter)) {
+                        project.style.display = '';
+                    } else {
+                        project.style.display = 'none';
+                    }
+                });
+            });
+
+            document.querySelectorAll('.delete-button').forEach(button => {
+                button.addEventListener('click', function (event) {
+                    event.stopPropagation();
+                    const project = this.closest('.project');
+                    const projectId = project.getAttribute('data-id');
+                    const confirmation = confirm("¿Deseas eliminar este proyecto?");
+                    if (confirmation) {
+                        deleteProject(projectId);
+                    }
+                });
+            });
+
+            document.querySelectorAll('.edit-button').forEach(button => {
+                button.addEventListener('click', function (event) {
+                    event.stopPropagation();
+                    const project = this.closest('.project');
+                    const projectId = project.getAttribute('data-id');
+                    const personaId = document.getElementById('filter-owner').value;
+                    const projectName = prompt("Ingrese el nuevo nombre del proyecto:", project.querySelector('.name').textContent);
+                    const projectDescription = prompt("Ingrese la nueva descripción del proyecto:", project.querySelector('.type').textContent);
+                    if (projectName && projectDescription) {
+                        editProject(projectId, personaId, projectName, projectDescription);
+                    }
+                });
+            });
+
+            document.querySelectorAll('.project').forEach(project => {
+                project.addEventListener('click', function () {
+                    const projectId = this.getAttribute('data-id');
+                    if (projectId) {
+                        window.location.href = `incidentes_proyectos.html?id=${projectId}`;
+                    } else {
+                        console.error('El proyecto no tiene un atributo data-id.');
+                    }
+                });
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const selectElement = document.getElementById('filter-owner');
+            if (selectElement.value) {
+                loadProjects(selectElement.value);
+            }
+        });
+    </script>
     <footer></footer>
 </body>
 
