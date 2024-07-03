@@ -132,17 +132,6 @@ def delete_persona(id_persona):
         return jsonify({"message": "Persona eliminada"})
     return jsonify({"message": "Persona no encontrada"}), 404
 
-# Rutas CRUD para Proyectos
-# @app.route('/proyectos/<int:id_persona>', endpoint='proyectos' )
-# def proyectos(id_persona):
-#     persona = Persona.query.get(id_persona)
-#     if not persona:
-#         flash('Persona no encontrada.')
-#         return redirect(url_for('index'))
-    
-#     proyectos = persona.proyectos
-#     return render_template('proyectos.html', proyectos=proyectos)
-
 
 @app.route('/proyectos', endpoint='proyectos' )
 def proyectos():
@@ -206,6 +195,10 @@ def api_delete_proyecto(id_proyecto):
     return jsonify({"message": "Proyecto eliminado"})
 
 # Rutas CRUD para Tareas
+@app.route('/incidentes_proyectos/<int:id_proyecto>')
+def incidentes_proyectos(id_proyecto):
+    return render_template('incidentes_proyectos.html', id_proyecto=id_proyecto)
+
 @app.route('/api/tareas/<int:id_proyecto>', methods=['GET'])
 def api_tareas(id_proyecto):
     proyecto = Proyecto.query.get(id_proyecto)
@@ -213,6 +206,7 @@ def api_tareas(id_proyecto):
         return jsonify({"error": "Proyecto no encontrado"}), 404
 
     tareas = Tarea.query.filter_by(id_Proyecto=id_proyecto).all()
+    print(tareas)
     tareas_list = [
         {
             "id": tarea.id_Tarea,
