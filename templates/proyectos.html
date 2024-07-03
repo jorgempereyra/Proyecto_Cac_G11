@@ -83,7 +83,7 @@
 
                     projectElement.innerHTML = `
                         <span class="icon">${project.icon}</span>
-                        <span class="name"><a href="incidentes_proyectos.html?id=${project.id}">${project.name}</a></span>
+                        <span class="name"><a href="/incidentes_proyectos/${project.id}">${project.name}</a></span>
                         <span class="type">${project.type}</span>
                         <span class="project status ${project.status.toLowerCase().replace(/ /g, '-')}">${project.status}</span>
                         <span class="responsible">${project.responsible}</span>
@@ -203,7 +203,7 @@
                 project.addEventListener('click', function () {
                     const projectId = this.getAttribute('data-id');
                     if (projectId) {
-                        window.location.href = `incidentes_proyectos.html?id=${projectId}`;
+                        window.location.href = `/incidentes_proyectos/${projectId}`;
                     } else {
                         console.error('El proyecto no tiene un atributo data-id.');
                     }
