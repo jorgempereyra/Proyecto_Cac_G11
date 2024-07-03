@@ -24,7 +24,11 @@
             <ul>
                 <li><a href="{{ url_for('index') }}"> Home</a></li>
                 <li><a href="{{ url_for('login') }}"> Login</a></li>
-                <li><a href="{{ url_for('proyectos') }}"> Proyectos </a></li>
+                {% if personas %}
+                    <li><a href="{{ url_for('proyectos') }}"> Proyectos </a></li>
+                {% else %}
+                    <li><a href="{{ url_for('add_persona') }}"> Crear Persona </a></li>
+                {% endif %}
             </ul>
 
             <a href="{{ url_for('formulario_contacto') }}" class="btn btn_principal">Contacto</a>

@@ -41,6 +41,15 @@
         <div class="container50 image"></div>
         <div class="container50 form">
             <h2>¡Bienvenido!</h2>
+            {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <ul class="error">
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            {% endwith %}
             <form method="post">
                 {{ form.hidden_tag() }}
                 <div>

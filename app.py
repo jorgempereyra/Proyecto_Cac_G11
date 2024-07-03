@@ -68,12 +68,12 @@ class RegistrationForm(FlaskForm):
     email = StringField('Email', validators=[DataRequired(), Email()])
     password = PasswordField('Password', validators=[DataRequired(), Length(min=8)])
     confirm_password = PasswordField('Confirm Password', validators=[DataRequired(), EqualTo('password')])
-    submit = SubmitField('Register')
+    submit = SubmitField('Crear',   render_kw={'class': 'btn btn_principal'})
 
 class LoginForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired(), Length(min=3, max=20)])
     password = PasswordField('Password', validators=[DataRequired(), Length(min=8)])
-    submit = SubmitField('Login')
+    submit = SubmitField('Login',render_kw={'class': 'btn btn_principal'})
 
 # Rutas CRUD para Personas
 @app.route('/personas', methods=['POST'])
@@ -227,13 +227,13 @@ def formulario_registro():
     if form.validate_on_submit():
         existing_user = Usuario.query.filter_by(username=form.username.data).first()
         if existing_user:
-            flash('Username already exists.')
+            flash('Usuario ya existe.')
             return redirect(url_for('register'))
         new_user = Usuario(username=form.username.data, email=form.email.data)
         new_user.set_password(form.password.data)
         db.session.add(new_user)
         db.session.commit()
-        flash('Registration successful. Please log in.')
+        flash('Registro Existos puedes hacer log in.')
         return redirect(url_for('login'))
     return render_template('formulario_registro.html', form=form)
 
@@ -243,10 +243,10 @@ def login():
     if form.validate_on_submit():
         user = Usuario.query.filter_by(username=form.username.data).first()
         if user and user.check_password(form.password.data):
-            flash('Login successful!')
-            return redirect(url_for('index'))
+            flash('Login existoso!')
+            return redirect(url_for('proyectos'))
         else:
-            flash('Invalid username or password.')
+            flash('Usuario o clave invalida')
     return render_template('login.html', form=form)
 
 
