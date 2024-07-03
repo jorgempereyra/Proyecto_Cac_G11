@@ -6,24 +6,13 @@ from wtforms import StringField, PasswordField, SubmitField
 from wtforms.validators import DataRequired, Length, Email, EqualTo
 from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime
-from dotenv import load_dotenv
 from config import Config
 
+
 app = Flask(__name__)
-load_dotenv()  # Cargar las variables de entorno desde el archivo .env
 app.config.from_object(Config)
 
 
-# Configuración de la base de datos usando las variables de entorno
-# user = os.getenv('DATABASE_USER')
-# password = os.getenv('DATABASE_PASSWORD')
-# host = os.getenv('DATABASE_HOST')
-# port = os.getenv('DATABASE_PORT')
-# dbname = os.getenv('DATABASE_NAME')
-
-# app.config['SQLALCHEMY_DATABASE_URI'] = f'mysql+pymysql://{user}:{password}@{host}:{port}/{dbname}'
-# app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-# app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
 db = SQLAlchemy(app)
 
 # Modelos de Base de Datos
